@@ -39,6 +39,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A934F21262E91F000DE66A9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7927577262C81C900EF5D3A /* SceneDelegate.swift */,
+				C7927575262C81C900EF5D3A /* AppDelegate.swift */,
+				C792757E262C81CB00EF5D3A /* Assets.xcassets */,
+				C7927580262C81CB00EF5D3A /* LaunchScreen.storyboard */,
+				C7927583262C81CB00EF5D3A /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C7927569262C81C900EF5D3A = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +70,10 @@
 		C7927574262C81C900EF5D3A /* MyMagicalHand */ = {
 			isa = PBXGroup;
 			children = (
-				C7927575262C81C900EF5D3A /* AppDelegate.swift */,
-				C7927577262C81C900EF5D3A /* SceneDelegate.swift */,
+				9A934F21262E91F000DE66A9 /* Supporting Files */,
 				C7927579262C81C900EF5D3A /* ViewController.swift */,
 				9A2FFF73262E908C006FF0C4 /* ShapesClassifier.mlmodel */,
 				C792757B262C81C900EF5D3A /* Main.storyboard */,
-				C792757E262C81CB00EF5D3A /* Assets.xcassets */,
-				C7927580262C81CB00EF5D3A /* LaunchScreen.storyboard */,
-				C7927583262C81CB00EF5D3A /* Info.plist */,
 			);
 			path = MyMagicalHand;
 			sourceTree = "<group>";
