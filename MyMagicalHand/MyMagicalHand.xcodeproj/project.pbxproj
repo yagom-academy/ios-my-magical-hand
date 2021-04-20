@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A2045F4262ECA510096F3B1 /* ShapeKeras.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9A2045F3262ECA510096F3B1 /* ShapeKeras.mlmodel */; };
 		9A2FFF74262E908C006FF0C4 /* ShapesClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9A2FFF73262E908C006FF0C4 /* ShapesClassifier.mlmodel */; };
 		C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927575262C81C900EF5D3A /* AppDelegate.swift */; };
 		C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927577262C81C900EF5D3A /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A2045F3262ECA510096F3B1 /* ShapeKeras.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = ShapeKeras.mlmodel; path = ../../../ShapeKeras.mlmodel; sourceTree = "<group>"; };
 		9A2FFF73262E908C006FF0C4 /* ShapesClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = ShapesClassifier.mlmodel; path = ../../../ShapesClassifier.mlmodel; sourceTree = "<group>"; };
 		C7927572262C81C900EF5D3A /* MyMagicalHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMagicalHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7927575262C81C900EF5D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				9A934F21262E91F000DE66A9 /* Supporting Files */,
 				C7927579262C81C900EF5D3A /* ViewController.swift */,
 				9A2FFF73262E908C006FF0C4 /* ShapesClassifier.mlmodel */,
+				9A2045F3262ECA510096F3B1 /* ShapeKeras.mlmodel */,
 				C792757B262C81C900EF5D3A /* Main.storyboard */,
 			);
 			path = MyMagicalHand;
@@ -150,6 +153,7 @@
 			files = (
 				C792757A262C81C900EF5D3A /* ViewController.swift in Sources */,
 				9A2FFF74262E908C006FF0C4 /* ShapesClassifier.mlmodel in Sources */,
+				9A2045F4262ECA510096F3B1 /* ShapeKeras.mlmodel in Sources */,
 				C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */,
 				C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */,
 			);
