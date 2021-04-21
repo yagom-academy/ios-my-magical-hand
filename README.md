@@ -1,7 +1,9 @@
-## iOS 커리어 스타터 캠프
+# 내손은 금손 (Core ML)
 
-### 내손은 금손 앱 저장소
+| 팀원     | 사용 언어                                                    |
+| -------- | ------------------------------------------------------------ |
+| Joons 🏄‍♂️ | <img width="200" alt="Swift" src="https://user-images.githubusercontent.com/40102795/114259983-f7a4f480-9a0c-11eb-8f57-2da635febfd9.png"> |
 
-- 이 저장소를 자신의 저장소로 fork하여 프로젝트를 진행합니다
-
+- Create ML을 통한 학습 모델 : DrawImageClassifier.mlmodel
+- Keras를 통한 학습 모델 : ShapDetectorKeras.mlmodel
 
