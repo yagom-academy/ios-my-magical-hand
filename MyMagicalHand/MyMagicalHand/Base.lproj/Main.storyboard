@@ -18,17 +18,15 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLN-nO-Cqv">
                                 <rect key="frame" x="20" y="587" width="52" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="결과보기">
                                     <color key="titleColor" systemColor="systemGreenColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="clickOnResult:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Scv-3K-zWh"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKZ-nY-aBh">
-                                <rect key="frame" x="355" y="587" width="39" height="30"/>
-                                <state key="normal" title="지우기">
-                                    <color key="titleColor" systemColor="systemPinkColor"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매칭 결과" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmg-qc-LEK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매칭 결과" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmg-qc-LEK">
                                 <rect key="frame" x="20" y="650" width="374" height="89.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -40,6 +38,16 @@
                                     <constraint firstAttribute="width" secondItem="L7Z-Eu-O4L" secondAttribute="height" multiplier="1:1" id="XZ9-JU-fUG"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKZ-nY-aBh">
+                                <rect key="frame" x="355" y="587" width="39" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="지우기">
+                                    <color key="titleColor" systemColor="systemPinkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickOnRemove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NLO-cn-agC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -48,21 +56,21 @@
                             <constraint firstItem="rmg-qc-LEK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1JM-30-rcj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jKZ-nY-aBh" secondAttribute="trailing" constant="20" id="Czy-vY-uxF"/>
                             <constraint firstItem="rmg-qc-LEK" firstAttribute="top" secondItem="qLN-nO-Cqv" secondAttribute="bottom" constant="33" id="GJc-Yt-eRS"/>
+                            <constraint firstItem="jKZ-nY-aBh" firstAttribute="height" secondItem="qLN-nO-Cqv" secondAttribute="height" id="Gfd-5S-XaE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rmg-qc-LEK" secondAttribute="trailing" constant="20" id="Icv-G8-5Dm"/>
                             <constraint firstItem="qLN-nO-Cqv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="LOS-R5-z7X"/>
                             <constraint firstItem="L7Z-Eu-O4L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Vk6-Ua-O0p"/>
                             <constraint firstItem="L7Z-Eu-O4L" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="900" constant="134" id="XuM-9o-BoH"/>
                             <constraint firstItem="qLN-nO-Cqv" firstAttribute="top" secondItem="L7Z-Eu-O4L" secondAttribute="bottom" constant="36.5" id="XvW-YN-BPY"/>
-                            <constraint firstItem="jKZ-nY-aBh" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0334821" id="dUW-dH-uQK"/>
                             <constraint firstItem="L7Z-Eu-O4L" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="dr5-lz-PJ8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rmg-qc-LEK" secondAttribute="bottom" constant="122.5" id="gMj-Mx-tHQ"/>
                             <constraint firstItem="jKZ-nY-aBh" firstAttribute="top" secondItem="L7Z-Eu-O4L" secondAttribute="bottom" constant="36.5" id="nLA-SQ-Mij"/>
-                            <constraint firstItem="jKZ-nY-aBh" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.0942029" id="q6H-po-pcv"/>
                             <constraint firstItem="rmg-qc-LEK" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1" id="qdS-2R-gpw"/>
-                            <constraint firstItem="qLN-nO-Cqv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0334821" id="sP9-2U-g5D"/>
-                            <constraint firstItem="qLN-nO-Cqv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.125604" id="x0B-4x-lbU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="rmg-qc-LEK" id="H3E-Kv-Rck"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
