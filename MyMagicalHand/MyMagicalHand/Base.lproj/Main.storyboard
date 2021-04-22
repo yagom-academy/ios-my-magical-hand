@@ -70,6 +70,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="drawView" destination="L7Z-Eu-O4L" id="ulc-NB-Mwy"/>
                         <outlet property="resultLabel" destination="rmg-qc-LEK" id="H3E-Kv-Rck"/>
                     </connections>
                 </viewController>
