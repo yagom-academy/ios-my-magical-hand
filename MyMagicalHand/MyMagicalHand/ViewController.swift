@@ -6,6 +6,7 @@ class ViewController: UIViewController {
     private var probability: String = "100.0"
     
     @IBOutlet weak var drawView: UIImageView!
+    private var touchPoint: CGPoint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,6 @@ class ViewController: UIViewController {
     // MARK: - 지우기 버튼 클릭 액션
     @IBAction func clickOnRemove(_ sender: UIButton) {
         resultLabel.isHidden = true
+        drawView.image = nil
     }
 }
-
