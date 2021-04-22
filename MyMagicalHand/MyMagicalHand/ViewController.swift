@@ -26,4 +26,10 @@ class ViewController: UIViewController {
         resultLabel.isHidden = true
         drawView.image = nil
     }
+    
+    // MARK: - 터치 발생
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let beforeTouch = touches.first! as UITouch
+        touchPoint = beforeTouch.location(in: drawView)
+    }
 }
