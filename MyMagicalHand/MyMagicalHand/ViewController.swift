@@ -5,6 +5,8 @@ class ViewController: UIViewController {
     private var shapeName: String = "동그라미"
     private var probability: String = "100.0"
     
+    @IBOutlet weak var drawView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
