@@ -41,6 +41,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B43F827B26315EC400FEEB15 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B43F827C26315ECB00FEEB15 /* MLModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B43F827C26315ECB00FEEB15 /* MLModels */ = {
+			isa = PBXGroup;
+			children = (
+				B4BB6A752630915300BD3712 /* ShapDetectorKeras.mlmodel */,
+				B4BB6A7A2630961900BD3712 /* DrawImageClassifier.mlmodel */,
+			);
+			path = MLModels;
+			sourceTree = "<group>";
+		};
 		C7927569262C81C900EF5D3A = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +77,7 @@
 		C7927574262C81C900EF5D3A /* MyMagicalHand */ = {
 			isa = PBXGroup;
 			children = (
-				B4BB6A752630915300BD3712 /* ShapDetectorKeras.mlmodel */,
-				B4BB6A7A2630961900BD3712 /* DrawImageClassifier.mlmodel */,
+				B43F827B26315EC400FEEB15 /* Models */,
 				C7927575262C81C900EF5D3A /* AppDelegate.swift */,
 				C7927577262C81C900EF5D3A /* SceneDelegate.swift */,
 				C7927579262C81C900EF5D3A /* ViewController.swift */,
