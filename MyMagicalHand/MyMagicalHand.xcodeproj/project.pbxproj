@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56865B2A263170F700B14AE7 /* FigureClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 56865B29263170F700B14AE7 /* FigureClassifier.mlmodel */; };
+		56865B2D2631710500B14AE7 /* FigureClassifier_Rotate.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 56865B2C2631710500B14AE7 /* FigureClassifier_Rotate.mlmodel */; };
+		56865B32263192FF00B14AE7 /* ShapeDetectorKeras.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 56865B31263192FF00B14AE7 /* ShapeDetectorKeras.mlmodel */; };
+		56865B37263195AA00B14AE7 /* FigureClassifier_FlilpRotate.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 56865B36263195AA00B14AE7 /* FigureClassifier_FlilpRotate.mlmodel */; };
 		C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927575262C81C900EF5D3A /* AppDelegate.swift */; };
 		C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927577262C81C900EF5D3A /* SceneDelegate.swift */; };
 		C792757A262C81C900EF5D3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927579262C81C900EF5D3A /* ViewController.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56865B29263170F700B14AE7 /* FigureClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FigureClassifier.mlmodel; sourceTree = "<group>"; };
+		56865B2C2631710500B14AE7 /* FigureClassifier_Rotate.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FigureClassifier_Rotate.mlmodel; sourceTree = "<group>"; };
+		56865B31263192FF00B14AE7 /* ShapeDetectorKeras.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ShapeDetectorKeras.mlmodel; sourceTree = "<group>"; };
+		56865B36263195AA00B14AE7 /* FigureClassifier_FlilpRotate.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FigureClassifier_FlilpRotate.mlmodel; sourceTree = "<group>"; };
 		C7927572262C81C900EF5D3A /* MyMagicalHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMagicalHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7927575262C81C900EF5D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7927577262C81C900EF5D3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56865B28263170CA00B14AE7 /* MLModel */ = {
+			isa = PBXGroup;
+			children = (
+				56865B29263170F700B14AE7 /* FigureClassifier.mlmodel */,
+				56865B2C2631710500B14AE7 /* FigureClassifier_Rotate.mlmodel */,
+				56865B36263195AA00B14AE7 /* FigureClassifier_FlilpRotate.mlmodel */,
+				56865B31263192FF00B14AE7 /* ShapeDetectorKeras.mlmodel */,
+			);
+			path = MLModel;
+			sourceTree = "<group>";
+		};
 		C7927569262C81C900EF5D3A = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +75,7 @@
 		C7927574262C81C900EF5D3A /* MyMagicalHand */ = {
 			isa = PBXGroup;
 			children = (
+				56865B28263170CA00B14AE7 /* MLModel */,
 				C7927575262C81C900EF5D3A /* AppDelegate.swift */,
 				C7927577262C81C900EF5D3A /* SceneDelegate.swift */,
 				C7927579262C81C900EF5D3A /* ViewController.swift */,
@@ -137,9 +157,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56865B37263195AA00B14AE7 /* FigureClassifier_FlilpRotate.mlmodel in Sources */,
 				C792757A262C81C900EF5D3A /* ViewController.swift in Sources */,
+				56865B32263192FF00B14AE7 /* ShapeDetectorKeras.mlmodel in Sources */,
 				C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */,
 				C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */,
+				56865B2A263170F700B14AE7 /* FigureClassifier.mlmodel in Sources */,
+				56865B2D2631710500B14AE7 /* FigureClassifier_Rotate.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
