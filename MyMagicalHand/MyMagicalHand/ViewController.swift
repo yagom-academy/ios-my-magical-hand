@@ -6,7 +6,8 @@ class ViewController: UIViewController {
     private var probability: String = "100.0"
     
     @IBOutlet weak var drawView: UIImageView!
-    private var touchPoint: CGPoint!
+    private var beforePoint: CGPoint!
+    private var afterPoint: CGPoint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,27 @@ class ViewController: UIViewController {
     
     // MARK: - 터치 발생
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let beforeTouch = touches.first! as UITouch
-        touchPoint = beforeTouch.location(in: drawView)
+        beforePoint = (touches.first! as UITouch).location(in: drawView)
+    }
+    
+    // MARK: - 그리기
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIGraphicsBeginImageContext(drawView.frame.size)
+        
+        UIGraphicsGetCurrentContext()!.setStrokeColor(UIColor.black.cgColor)
+        UIGraphicsGetCurrentContext()!.setLineCap(CGLineCap.round)
+        UIGraphicsGetCurrentContext()!.setLineWidth(10.0)
+
+        afterPoint = (touches.first! as UITouch).location(in: drawView)
+
+        drawView.image?.draw(in: CGRect(x: 0, y: 0, width: drawView.frame.size.width, height: drawView.frame.size.height))
+
+        UIGraphicsGetCurrentContext()?.move(to: CGPoint(x: beforePoint.x, y: beforePoint.y))
+        UIGraphicsGetCurrentContext()?.addLine(to: CGPoint(x: afterPoint.x, y: afterPoint.y))
+        UIGraphicsGetCurrentContext()?.strokePath()
+
+        drawView.image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
     }
 }
