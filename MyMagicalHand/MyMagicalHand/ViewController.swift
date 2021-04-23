@@ -50,6 +50,7 @@ class ViewController: UIViewController {
         UIGraphicsGetCurrentContext()?.strokePath()
 
         drawView.image = UIGraphicsGetImageFromCurrentImageContext()
+        beforePoint = afterPoint
         
         UIGraphicsEndImageContext()
     }
