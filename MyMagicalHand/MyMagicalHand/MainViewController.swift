@@ -6,15 +6,15 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     // MARK: - properties
     
-    var touchPoint: CGPoint?
+    private var touchPoint: CGPoint?
     
-    @IBOutlet weak var resultLabel: UILabel!
-    @IBOutlet weak var persentButton: UILabel!
-    @IBOutlet weak var drawingView: UIImageView!
+    @IBOutlet private weak var resultLabel: UILabel!
+    @IBOutlet private weak var persentButton: UILabel!
+    @IBOutlet private weak var drawingView: UIImageView!
     
     // MARK: - life cycle
     
@@ -22,54 +22,57 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         clearLabels()
     }
-
+    
     // MARK: - handle buttons
     
-    @IBAction func touchUpResultButton() {
+    @IBAction private func touchUpResultButton() {
         // test message
         resultLabel.text = "동그라미처럼 보이네요."
         persentButton.text = "99%"
     }
     
-    @IBAction func touchUpClearButton() {
+    @IBAction private func touchUpClearButton() {
         clearLabels()
         drawingView.image = nil
     }
     
-    func clearLabels() {
+    private func clearLabels() {
         resultLabel.text = String.empty
         persentButton.text = String.empty
     }
     
-    // MARK: - drwaing
+    // MARK: - drawing
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else {
-            return
-        }
-        touchPoint = touch.location(in: drawingView)
+        touchPoint = touches.first?.location(in: drawingView)
+        super.touchesBegan(touches, with: event)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first, let lastPoint = touchPoint else {
-            return
-        }
-        let currentPoint = touch.location(in: drawingView)
         let imageView = drawingView.frame.size
         
         UIGraphicsBeginImageContext(imageView)
+        
+        guard let context = UIGraphicsGetCurrentContext(), let touch = touches.first, let lastPoint = touchPoint else {
+            return
+        }
+        let currentPoint = touch.location(in: drawingView)
+        
         drawingView.image?.draw(in: CGRect(x: 0, y: 0, width: imageView.width, height: imageView.height))
         
-        UIGraphicsGetCurrentContext()?.setLineWidth(10.0)
-        UIGraphicsGetCurrentContext()?.setLineCap(CGLineCap.round)
-        UIGraphicsGetCurrentContext()?.setStrokeColor(UIColor.label.cgColor)
-        UIGraphicsGetCurrentContext()?.move(to: CGPoint(x: lastPoint.x, y: lastPoint.y))
-        UIGraphicsGetCurrentContext()?.addLine(to: CGPoint(x: currentPoint.x, y: currentPoint.y))
-        UIGraphicsGetCurrentContext()?.strokePath()
+        context.setLineWidth(10.0)
+        context.setLineCap(CGLineCap.round)
+        context.setStrokeColor(UIColor.label.cgColor)
         
-        drawingView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        context.move(to: CGPoint(x: lastPoint.x, y: lastPoint.y))
+        context.addLine(to: CGPoint(x: currentPoint.x, y: currentPoint.y))
+        context.strokePath()
         
         touchPoint = currentPoint
+        drawingView.image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        super.touchesMoved(touches, with: event)
     }
 }
