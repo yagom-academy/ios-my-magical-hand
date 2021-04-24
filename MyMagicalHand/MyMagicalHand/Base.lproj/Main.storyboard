@@ -86,7 +86,7 @@
                     </view>
                     <connections>
                         <outlet property="drawingView" destination="vys-ch-23b" id="dY7-oT-R7i"/>
-                        <outlet property="persentButton" destination="XC8-wO-9YS" id="Dkn-a3-Ljl"/>
+                        <outlet property="persentLabel" destination="XC8-wO-9YS" id="Dkn-a3-Ljl"/>
                         <outlet property="resultLabel" destination="rcG-Rh-bjx" id="4W9-ya-pJo"/>
                     </connections>
                 </viewController>

@@ -13,7 +13,7 @@ final class MainViewController: UIViewController {
     private var touchPoint: CGPoint?
     
     @IBOutlet private weak var resultLabel: UILabel!
-    @IBOutlet private weak var persentButton: UILabel!
+    @IBOutlet private weak var persentLabel: UILabel!
     @IBOutlet private weak var drawingView: UIImageView!
     
     // MARK: - life cycle
@@ -28,7 +28,7 @@ final class MainViewController: UIViewController {
     @IBAction private func touchUpResultButton() {
         // test message
         resultLabel.text = "동그라미처럼 보이네요."
-        persentButton.text = "99%"
+        persentLabel.text = "99%"
     }
     
     @IBAction private func touchUpClearButton() {
@@ -38,7 +38,7 @@ final class MainViewController: UIViewController {
     
     private func clearLabels() {
         resultLabel.text = String.empty
-        persentButton.text = String.empty
+        persentLabel.text = String.empty
     }
     
     // MARK: - drawing
