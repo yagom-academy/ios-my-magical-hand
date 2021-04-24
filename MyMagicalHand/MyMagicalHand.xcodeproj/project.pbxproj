@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A94A2212630148E00116274 /* ShapesClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9A94A21F2630148E00116274 /* ShapesClassifier.mlmodel */; };
 		9A94A2222630148E00116274 /* ShapeKeras.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9A94A2202630148E00116274 /* ShapeKeras.mlmodel */; };
+		9ACBA26A2633A11F001AE3F2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACBA2692633A11F001AE3F2 /* Model.swift */; };
 		C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927575262C81C900EF5D3A /* AppDelegate.swift */; };
 		C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927577262C81C900EF5D3A /* SceneDelegate.swift */; };
 		C792757A262C81C900EF5D3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927579262C81C900EF5D3A /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		9A94A21F2630148E00116274 /* ShapesClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ShapesClassifier.mlmodel; sourceTree = "<group>"; };
 		9A94A2202630148E00116274 /* ShapeKeras.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ShapeKeras.mlmodel; sourceTree = "<group>"; };
+		9ACBA2692633A11F001AE3F2 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C7927572262C81C900EF5D3A /* MyMagicalHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMagicalHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7927575262C81C900EF5D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7927577262C81C900EF5D3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				9A94A2242630149700116274 /* MLModel */,
 				9A934F21262E91F000DE66A9 /* Supporting Files */,
 				C7927579262C81C900EF5D3A /* ViewController.swift */,
+				9ACBA2692633A11F001AE3F2 /* Model.swift */,
 				C792757B262C81C900EF5D3A /* Main.storyboard */,
 			);
 			path = MyMagicalHand;
@@ -162,6 +165,7 @@
 				C792757A262C81C900EF5D3A /* ViewController.swift in Sources */,
 				9A94A2212630148E00116274 /* ShapesClassifier.mlmodel in Sources */,
 				9A94A2222630148E00116274 /* ShapeKeras.mlmodel in Sources */,
+				9ACBA26A2633A11F001AE3F2 /* Model.swift in Sources */,
 				C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */,
 				C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */,
 			);
