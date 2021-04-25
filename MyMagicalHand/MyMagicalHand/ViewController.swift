@@ -37,21 +37,29 @@ class ViewController: UIViewController {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIGraphicsBeginImageContext(drawView.frame.size)
         
-        UIGraphicsGetCurrentContext()!.setStrokeColor(UIColor.black.cgColor)
-        UIGraphicsGetCurrentContext()!.setLineCap(CGLineCap.round)
-        UIGraphicsGetCurrentContext()!.setLineWidth(10.0)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return
+        }
+        configureContext(context)
 
         afterPoint = (touches.first! as UITouch).location(in: drawView)
 
         drawView.image?.draw(in: CGRect(x: 0, y: 0, width: drawView.frame.size.width, height: drawView.frame.size.height))
 
-        UIGraphicsGetCurrentContext()?.move(to: CGPoint(x: beforePoint.x, y: beforePoint.y))
-        UIGraphicsGetCurrentContext()?.addLine(to: CGPoint(x: afterPoint.x, y: afterPoint.y))
-        UIGraphicsGetCurrentContext()?.strokePath()
+        context.move(to: CGPoint(x: beforePoint.x, y: beforePoint.y))
+        context.addLine(to: CGPoint(x: afterPoint.x, y: afterPoint.y))
+        context.strokePath()
 
         drawView.image = UIGraphicsGetImageFromCurrentImageContext()
         beforePoint = afterPoint
         
         UIGraphicsEndImageContext()
+    }
+    
+    // MARK: - 컨텍스트 설정
+    private func configureContext(_ context: CGContext) {
+        context.setStrokeColor(UIColor.black.cgColor)
+        context.setLineCap(CGLineCap.round)
+        context.setLineWidth(10.0)
     }
 }
