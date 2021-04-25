@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     // MARK: - 결과보기 버튼 클릭 액션
     @IBAction func clickOnResult(_ sender: UIButton) {
-        resultLabel.text = shapeName + "처럼 보이네요" + "\n" + probability + "%"
+        resultLabel.text = "\(shapeName)처럼 보이네요 \n \(probability)%"
         resultLabel.isHidden = false
     }
     
@@ -30,28 +30,38 @@ class ViewController: UIViewController {
     
     // MARK: - 터치 발생
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         beforePoint = (touches.first! as UITouch).location(in: drawView)
     }
     
     // MARK: - 그리기
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIGraphicsBeginImageContext(drawView.frame.size)
+        super.touchesMoved(touches, with: event)
         
-        UIGraphicsGetCurrentContext()!.setStrokeColor(UIColor.black.cgColor)
-        UIGraphicsGetCurrentContext()!.setLineCap(CGLineCap.round)
-        UIGraphicsGetCurrentContext()!.setLineWidth(10.0)
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return
+        }
+        configureContext(context)
 
         afterPoint = (touches.first! as UITouch).location(in: drawView)
 
         drawView.image?.draw(in: CGRect(x: 0, y: 0, width: drawView.frame.size.width, height: drawView.frame.size.height))
 
-        UIGraphicsGetCurrentContext()?.move(to: CGPoint(x: beforePoint.x, y: beforePoint.y))
-        UIGraphicsGetCurrentContext()?.addLine(to: CGPoint(x: afterPoint.x, y: afterPoint.y))
-        UIGraphicsGetCurrentContext()?.strokePath()
+        context.move(to: CGPoint(x: beforePoint.x, y: beforePoint.y))
+        context.addLine(to: CGPoint(x: afterPoint.x, y: afterPoint.y))
+        context.strokePath()
 
         drawView.image = UIGraphicsGetImageFromCurrentImageContext()
         beforePoint = afterPoint
         
         UIGraphicsEndImageContext()
+    }
+    
+    // MARK: - 컨텍스트 설정
+    private func configureContext(_ context: CGContext) {
+        context.setStrokeColor(UIColor.black.cgColor)
+        context.setLineCap(CGLineCap.round)
+        context.setLineWidth(10.0)
     }
 }
