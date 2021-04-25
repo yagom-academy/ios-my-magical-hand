@@ -30,12 +30,14 @@ class ViewController: UIViewController {
     
     // MARK: - 터치 발생
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         beforePoint = (touches.first! as UITouch).location(in: drawView)
     }
     
     // MARK: - 그리기
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIGraphicsBeginImageContext(drawView.frame.size)
+        super.touchesMoved(touches, with: event)
         
         guard let context = UIGraphicsGetCurrentContext() else {
             return
