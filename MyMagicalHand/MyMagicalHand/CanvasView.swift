@@ -1,20 +1,35 @@
-//
-//  CanvasView.swift
-//  MyMagicalHand
-//
-//  Created by iluxsm on 2021/04/23.
-//
-
 import UIKit
 
 class CanvasView: UIView {
+    // MARK:- Properties
+    private var touchPoint: CGPoint?
+    private var currentPoint: CGPoint?
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
+    // MARK:- Override Methods
     override func draw(_ rect: CGRect) {
-        // Drawing code
+        guard let context = UIGraphicsGetCurrentContext(), let touchPoint = self.touchPoint, let currentPoint = self.currentPoint else { return }
+        setContext(context)
+        context.move(to: CGPoint(x: touchPoint.x, y: touchPoint.y))
+        context.addLine(to: CGPoint(x: currentPoint.x, y: currentPoint.y))
+        context.strokePath()
     }
-    */
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        touchPoint = touches.first?.location(in: self)
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        currentPoint = touches.first?.location(in: self)
+        setNeedsDisplay()
+    }
+}
+
+extension CanvasView {
+    private func setContext(_ context: CGContext) {
+        context.setStrokeColor(UIColor.black.cgColor)
+        context.setLineWidth(10)
+        context.setLineCap(.round)
+    }
 }

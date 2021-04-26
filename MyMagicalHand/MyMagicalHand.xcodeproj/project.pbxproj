@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		361909CC263106EE00AA3243 /* ShapDetectorKeras.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 361909CB263106EE00AA3243 /* ShapDetectorKeras.mlmodel */; };
+		8BA2623E2632AE8200C1348A /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA2623D2632AE8200C1348A /* CanvasView.swift */; };
 		C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927575262C81C900EF5D3A /* AppDelegate.swift */; };
 		C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927577262C81C900EF5D3A /* SceneDelegate.swift */; };
 		C792757A262C81C900EF5D3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927579262C81C900EF5D3A /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		361909CB263106EE00AA3243 /* ShapDetectorKeras.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ShapDetectorKeras.mlmodel; sourceTree = "<group>"; };
 		361909D0263107BE00AA3243 /* ShapeImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ShapeImageClassifier.mlmodel; sourceTree = "<group>"; };
+		8BA2623D2632AE8200C1348A /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		C7927572262C81C900EF5D3A /* MyMagicalHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMagicalHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7927575262C81C900EF5D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7927577262C81C900EF5D3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				C7927575262C81C900EF5D3A /* AppDelegate.swift */,
 				C7927577262C81C900EF5D3A /* SceneDelegate.swift */,
 				C7927579262C81C900EF5D3A /* ViewController.swift */,
+				8BA2623D2632AE8200C1348A /* CanvasView.swift */,
 				C792757B262C81C900EF5D3A /* Main.storyboard */,
 				C792757E262C81CB00EF5D3A /* Assets.xcassets */,
 				C7927580262C81CB00EF5D3A /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 			files = (
 				C792757A262C81C900EF5D3A /* ViewController.swift in Sources */,
 				361909CC263106EE00AA3243 /* ShapDetectorKeras.mlmodel in Sources */,
+				8BA2623E2632AE8200C1348A /* CanvasView.swift in Sources */,
 				C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */,
 				C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */,
 			);
