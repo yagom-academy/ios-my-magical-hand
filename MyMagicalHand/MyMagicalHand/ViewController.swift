@@ -3,7 +3,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     private var shapeName: String = "동그라미"
-    private var probability: String = "100.0"
+    private var probability: Double = 100.0
     
     @IBOutlet weak var drawView: UIImageView!
     private var beforePoint: CGPoint!
