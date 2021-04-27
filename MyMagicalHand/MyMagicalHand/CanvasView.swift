@@ -9,7 +9,7 @@ import UIKit
 
 final class CanvasView: UIView {
     
-    private var lines: [[CGPoint]] = []
+    private var lines: [Line] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,10 +29,10 @@ final class CanvasView: UIView {
         }
         
         context.setLineWidth(10)
-        context.setLineCap(.butt)
+        context.setLineCap(.round)
         
         lines.forEach { (line) in
-            for (index, point) in line.enumerated() {
+            for (index, point) in line.points.enumerated() {
                 if index == 0 {
                     context.move(to: point)
                 } else {
@@ -45,7 +45,7 @@ final class CanvasView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lines.append([CGPoint]())
+        lines.append(Line())
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -56,7 +56,7 @@ final class CanvasView: UIView {
         guard var lastLine = lines.popLast() else {
             return
         }
-        lastLine.append(point)
+        lastLine.points.append(point)
         lines.append(lastLine)
         setNeedsDisplay()
     }
