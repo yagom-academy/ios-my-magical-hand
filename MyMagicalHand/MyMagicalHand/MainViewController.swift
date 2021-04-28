@@ -49,30 +49,29 @@ final class MainViewController: UIViewController {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let imageViewSize = drawingView.frame.size
-        
-        UIGraphicsBeginImageContext(imageViewSize)
-        
-        guard let context = UIGraphicsGetCurrentContext(), let touch = touches.first, let lastPoint = touchPoint else {
+        let drawingViewSize = drawingView.frame.size
+        UIGraphicsBeginImageContext(drawingView.frame.size)
+        guard let context = UIGraphicsGetCurrentContext(), let touch = touches.first else {
             return
         }
-        let currentPoint = touch.location(in: drawingView)
-        
-        drawingView.image?.draw(in: CGRect(x: 0, y: 0, width: imageViewSize.width, height: imageViewSize.height))
-        
+        let drawingViewCGRect = CGRect(x: 0, y: 0, width: drawingViewSize.width, height: drawingViewSize.height)
+        drawingView.image?.draw(in: drawingViewCGRect)
+        configureContext(context: context, currentPoint: touch.location(in: drawingView))
+        drawingView.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        super.touchesMoved(touches, with: event)
+    }
+    
+    private func configureContext(context: CGContext, currentPoint: CGPoint) {
+        guard let lastPoint = touchPoint else {
+            return
+        }
         context.setLineWidth(10.0)
         context.setLineCap(CGLineCap.round)
         context.setStrokeColor(UIColor.label.cgColor)
-        
         context.move(to: CGPoint(x: lastPoint.x, y: lastPoint.y))
         context.addLine(to: CGPoint(x: currentPoint.x, y: currentPoint.y))
         context.strokePath()
-        
         touchPoint = currentPoint
-        drawingView.image = UIGraphicsGetImageFromCurrentImageContext()
-        
-        UIGraphicsEndImageContext()
-        
-        super.touchesMoved(touches, with: event)
     }
 }
