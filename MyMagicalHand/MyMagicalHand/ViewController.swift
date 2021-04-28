@@ -68,6 +68,7 @@ class ViewController: UIViewController {
     
     private func addButtonActions() {
         showResultButton.addTarget(self, action: #selector(didTapShowResultButton), for: .touchUpInside)
+        clearButton.addTarget(self, action: #selector(didTapClearButton(_:)), for: .touchUpInside)
     }
     
     private func hideLabelWhenStarted() {
@@ -79,6 +80,10 @@ class ViewController: UIViewController {
     @objc private func didTapShowResultButton(_ sender: UIButton) {
         looksLikeLabel.isHidden = false
         percentLabel.isHidden = false
+    }
+    
+    @objc private func didTapClearButton(_ sender: UIButton) {
+        canvasView.erase()
     }
 }
 
