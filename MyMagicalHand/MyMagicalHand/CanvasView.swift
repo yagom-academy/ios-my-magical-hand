@@ -66,4 +66,14 @@ final class CanvasView: UIView {
         setNeedsDisplay()
     }
     
+    func exportDrawing() -> UIImage? {
+        UIGraphicsBeginImageContext(frame.size)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        
+        draw(layer, in: context)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
 }
