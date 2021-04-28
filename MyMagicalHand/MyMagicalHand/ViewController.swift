@@ -12,14 +12,15 @@ class ViewController: UIViewController {
     private let showResultButton = ActionButton(title: "결과보기", titleColor: .systemYellow)
     private let clearButton = ActionButton(title: "지우기", titleColor: .white)
     private let labelVerticalStackView = MagicalHandStackView(axis: .vertical, distribution: .fillProportionally)
-    private let looksLikeLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .title2))
-    private let percentLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .body))
+    private(set) var looksLikeLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .title2))
+    private(set) var percentLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .body))
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()
         configureCanvasView()
         configureStackViews()
+        hideLabelWhenStarted()
     }
     
     //MARK: - Configure Views
@@ -61,6 +62,11 @@ class ViewController: UIViewController {
             labelVerticalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             labelVerticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
         ])
+    }
+    
+    private func hideLabelWhenStarted() {
+        looksLikeLabel.isHidden = true
+        percentLabel.isHidden = true
     }
 }
 
