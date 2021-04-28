@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         view.addSubview(backgroundView)
         backgroundView.frame = view.bounds
     }
+    
     private func configureCanvasView() {
         let padding: CGFloat = 16
         let width = view.frame.width - (padding * 2)
