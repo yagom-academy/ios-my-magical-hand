@@ -1,5 +1,6 @@
 import UIKit
 
 struct Line {
-    var points = [CGPoint]()
+    var startPoint: CGPoint?
+    var endPoint: CGPoint?
 }
