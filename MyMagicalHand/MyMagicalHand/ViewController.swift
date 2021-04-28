@@ -8,11 +8,11 @@ class ViewController: UIViewController {
         return visualEffectView
     }()
     private(set) var canvasView = CanvasView()
-    private let buttonHorizontalStackView = MagicalHandStackView(axis: .horizontal, distribution: .equalSpacing)
+    private let buttonHorizontalStackView = MagicalHandStackView(axis: .horizontal, distribution: .equalSpacing, spacing: 0)
     private(set) var showResultButton = ActionButton(title: "결과보기", titleColor: .systemYellow)
     private(set) var clearButton = ActionButton(title: "지우기", titleColor: .white)
-    private let labelVerticalStackView = MagicalHandStackView(axis: .vertical, distribution: .fillProportionally)
-    private(set) var looksLikeLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .title2))
+    private let labelVerticalStackView = MagicalHandStackView(axis: .vertical, distribution: .fillProportionally, spacing: 16)
+    private(set) var looksLikeLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .title1))
     private(set) var percentLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .body))
 
     override func viewDidLoad() {
@@ -60,7 +60,6 @@ class ViewController: UIViewController {
             buttonHorizontalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
             buttonHorizontalStackView.heightAnchor.constraint(equalToConstant: 40),
             labelVerticalStackView.topAnchor.constraint(equalTo: buttonHorizontalStackView.bottomAnchor, constant: padding),
-            labelVerticalStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40),
             labelVerticalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             labelVerticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
         ])

@@ -19,11 +19,12 @@ class MagicalHandStackView: UIStackView {
         configure()
     }
     
-    init(axis: NSLayoutConstraint.Axis, distribution: UIStackView.Distribution) {
+    init(axis: NSLayoutConstraint.Axis, distribution: UIStackView.Distribution, spacing: CGFloat) {
         super.init(frame: .zero)
         configure()
         self.axis = axis
         self.distribution = distribution
+        self.spacing = spacing
     }
     
     private func configure() {
