@@ -45,6 +45,8 @@ class ViewControllerTests: XCTestCase {
     }
     
     func testController_whenTappedClearButton_labelsAreHidden() {
+        //given
+        sut.showResultButton.sendActions(for: .touchUpInside)
         //when
         sut.clearButton.sendActions(for: .touchUpInside)
         //then
