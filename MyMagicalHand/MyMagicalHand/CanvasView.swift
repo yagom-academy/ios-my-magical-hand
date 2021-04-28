@@ -28,8 +28,8 @@ final class CanvasView: UIView {
             return
         }
         
-        context.setLineWidth(10)
-        context.setLineCap(.butt)
+        context.setLineWidth(20)
+        context.setLineCap(.round)
         
         lines.forEach { (line) in
             for (index, point) in line.enumerated() {
