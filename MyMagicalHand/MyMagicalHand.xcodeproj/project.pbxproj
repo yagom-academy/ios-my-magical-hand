@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B48E17F426392D360046558B /* ResultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E17F326392D360046558B /* ResultLabel.swift */; };
+		B48E17F726392F290046558B /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E17F626392F290046558B /* ActionButton.swift */; };
 		B4BB6A762630915300BD3712 /* ShapDetectorKeras.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B4BB6A752630915300BD3712 /* ShapDetectorKeras.mlmodel */; };
 		B4BB6A7B2630961900BD3712 /* DrawImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B4BB6A7A2630961900BD3712 /* DrawImageClassifier.mlmodel */; };
 		B4E780A72637ED770023B9B5 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E780A62637ED770023B9B5 /* CanvasView.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		B48E17F326392D360046558B /* ResultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultLabel.swift; sourceTree = "<group>"; };
+		B48E17F626392F290046558B /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		B4BB6A752630915300BD3712 /* ShapDetectorKeras.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ShapDetectorKeras.mlmodel; sourceTree = "<group>"; };
 		B4BB6A7A2630961900BD3712 /* DrawImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawImageClassifier.mlmodel; sourceTree = "<group>"; };
 		B4E780A62637ED770023B9B5 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			children = (
 				B4E780A62637ED770023B9B5 /* CanvasView.swift */,
 				B48E17F326392D360046558B /* ResultLabel.swift */,
+				B48E17F626392F290046558B /* ActionButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */,
 				B4BB6A7B2630961900BD3712 /* DrawImageClassifier.mlmodel in Sources */,
 				B48E17F426392D360046558B /* ResultLabel.swift in Sources */,
+				B48E17F726392F290046558B /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
