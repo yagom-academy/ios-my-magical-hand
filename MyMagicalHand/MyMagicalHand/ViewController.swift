@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         configureCanvasView()
         configureStackViews()
         hideLabelWhenStarted()
+        addButtonActions()
     }
     
     //MARK: - Configure Views
@@ -65,9 +66,19 @@ class ViewController: UIViewController {
         ])
     }
     
+    private func addButtonActions() {
+        showResultButton.addTarget(self, action: #selector(didTapShowResultButton), for: .touchUpInside)
+    }
+    
     private func hideLabelWhenStarted() {
         looksLikeLabel.isHidden = true
         percentLabel.isHidden = true
+    }
+    
+    //MARK: - Actions
+    @objc private func didTapShowResultButton(_ sender: UIButton) {
+        looksLikeLabel.isHidden = false
+        percentLabel.isHidden = false
     }
 }
 
