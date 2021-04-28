@@ -9,7 +9,7 @@ class ViewController: UIViewController {
     }()
     private let canvasView = CanvasView()
     private let buttonHorizontalStackView = MagicalHandStackView(axis: .horizontal, distribution: .equalSpacing)
-    private let showResultButton = ActionButton(title: "결과보기", titleColor: .systemYellow)
+    private(set) var showResultButton = ActionButton(title: "결과보기", titleColor: .systemYellow)
     private let clearButton = ActionButton(title: "지우기", titleColor: .white)
     private let labelVerticalStackView = MagicalHandStackView(axis: .vertical, distribution: .fillProportionally)
     private(set) var looksLikeLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .title2))

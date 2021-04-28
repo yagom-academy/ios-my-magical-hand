@@ -26,4 +26,12 @@ class ViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.looksLikeLabel.isHidden, true)
         XCTAssertEqual(sut.percentLabel.isHidden, true)
     }
+    
+    func testController_whenTappedShowResultButton_labelsAreNotHidden() {
+        //when
+        sut.showResultButton.actions(forTarget: sut, forControlEvent: .touchUpInside)
+        //then
+        XCTAssertFalse(sut.looksLikeLabel.isHidden)
+        XCTAssertFalse(sut.percentLabel.isHidden)
+    }
 }
