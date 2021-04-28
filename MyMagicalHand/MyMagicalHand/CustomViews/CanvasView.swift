@@ -6,7 +6,7 @@ final class CanvasView: UIView {
         var points: [CGPoint] = []
     }
     
-    var paths: [Path] = []
+    private(set) var paths: [Path] = []
     private var numberOfPath = 0
     
     //MARK: - Init
