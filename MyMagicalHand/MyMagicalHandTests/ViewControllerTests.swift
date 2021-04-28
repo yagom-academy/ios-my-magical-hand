@@ -20,4 +20,10 @@ class ViewControllerTests: XCTestCase {
         sut = nil
         try super.tearDownWithError()
     }
+    
+    func testController_whenStartApp_labelsAreHidden() {
+        //then
+        XCTAssertEqual(sut.looksLikeLabel.isHidden, true)
+        XCTAssertEqual(sut.percentLabel.isHidden, true)
+    }
 }
