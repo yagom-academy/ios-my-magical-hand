@@ -7,3 +7,49 @@
 - Create ML을 통한 학습 모델 : DrawImageClassifier.mlmodel
 - Keras를 통한 학습 모델 : ShapDetectorKeras.mlmodel
 
+- UIBezierPath를 사용하여 CanvasView(UIView)에 그림을 그릴 수 있게 구현
+- TDD를 활용하여 최대한 Testable한 코드를 작성하고자 노력 
+  - Test에 대한 커밋은 실패하는 테스트 케이스 작성하여 커밋, 성공하게 만들고, 리팩토링 까지 하여 커밋 이런식으로 커밋을 진행
+- Touch Event를 함께 활용하여 터치를 시작하고, 끝나는 시점에 하나의 Path가 완성되어 paths라는 배열에 담아두는 방식으로 구현
+
+
+
+## Tests
+
+```swift
+CanvasViewTests
+	- testView_whenErase_allPathsAreClear()
+
+ViewControllerTests
+	- testController_whenStartApp_labelsAreHidden()
+	- testController_whenTappedShowResultButton_labelsAreNotHidden()
+	- testController_whenTappedClearButton_canvasViewIsClear()
+	- testController_whenTappedClearButton_labelsAreHidden
+```
+
+
+
+
+
+## 고민하고 있어요!
+
+- ✅CreateML시 Maximum Iterations를 아무리 크게 줘도 10회만 학습하는 것 같다. 
+
+  - Training Accuracy가 100%가 되면 Maximum을 채우지 않고 종료한다. (학습이 끝나면 종료!)
+
+- ❌test code를 작성하는 과정에서 Label들을 테스트하는데 private 접근제한자로 선언하였는데. 
+
+  - ```swift
+    private let looksLikeLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .title1))
+    ```
+
+    기존에 이런식으로 선언한 것을
+
+    ```swift
+    private(set) var looksLikeLabel = ResultLabel(font: UIFont.preferredFont(forTextStyle: .title1))
+    ```
+
+    이렇게 변경하여 테스트 진행하였습니다 이런 방식이 맞는건지?
+
+- ❌private 접근제한자가 붙은 메서드에 대한 test코드를 만드는 방법?
+
