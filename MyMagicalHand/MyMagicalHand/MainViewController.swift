@@ -20,6 +20,10 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func touchUpEraseButton(_ sender: Any) {
+        drawingImageView.image = nil
+    }
 }
 
 // MARK: - Drawing Methods
