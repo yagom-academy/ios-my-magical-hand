@@ -16,7 +16,7 @@ class CanvasView: UIView {
     //MARK: - Private
     private func configure() {
         backgroundColor = .systemBackground
-        
+        translatesAutoresizingMaskIntoConstraints = false
     }
     
     func erase() {

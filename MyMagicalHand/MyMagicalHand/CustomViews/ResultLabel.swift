@@ -19,8 +19,9 @@ class ResultLabel: UILabel {
     
     private func configure() {
         textAlignment = .center
-        textColor = .label
+        textColor = .white
         numberOfLines = 0
         translatesAutoresizingMaskIntoConstraints = false
+        text = "TEST"
     }
 }
