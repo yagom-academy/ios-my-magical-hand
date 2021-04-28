@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4210A422639D7D8008CFDE9 /* CanvasViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4210A412639D7D8008CFDE9 /* CanvasViewTests.swift */; };
 		B48E17F426392D360046558B /* ResultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E17F326392D360046558B /* ResultLabel.swift */; };
 		B48E17F726392F290046558B /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E17F626392F290046558B /* ActionButton.swift */; };
 		B48E17FA26397C590046558B /* MagicalHandStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E17F926397C590046558B /* MagicalHandStackView.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B4210A412639D7D8008CFDE9 /* CanvasViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewTests.swift; sourceTree = "<group>"; };
 		B48E17F326392D360046558B /* ResultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultLabel.swift; sourceTree = "<group>"; };
 		B48E17F626392F290046558B /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		B48E17F926397C590046558B /* MagicalHandStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicalHandStackView.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				B48E1804263995260046558B /* Info.plist */,
 				B48E180E263995500046558B /* ViewControllerTests.swift */,
 				B48E1812263995B90046558B /* ViewControllers.swift */,
+				B4210A412639D7D8008CFDE9 /* CanvasViewTests.swift */,
 			);
 			path = MyMagicalHandTests;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B48E1813263995B90046558B /* ViewControllers.swift in Sources */,
+				B4210A422639D7D8008CFDE9 /* CanvasViewTests.swift in Sources */,
 				B48E180F263995500046558B /* ViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
