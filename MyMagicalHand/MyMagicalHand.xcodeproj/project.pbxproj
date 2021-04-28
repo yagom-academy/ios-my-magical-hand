@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		566D024226399EC600034C17 /* Pen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566D024126399EC600034C17 /* Pen.swift */; };
 		56865B2A263170F700B14AE7 /* FigureClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 56865B29263170F700B14AE7 /* FigureClassifier.mlmodel */; };
 		56865B2D2631710500B14AE7 /* FigureClassifier_Rotate.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 56865B2C2631710500B14AE7 /* FigureClassifier_Rotate.mlmodel */; };
 		56865B32263192FF00B14AE7 /* ShapeDetectorKeras.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 56865B31263192FF00B14AE7 /* ShapeDetectorKeras.mlmodel */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		566D024126399EC600034C17 /* Pen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pen.swift; sourceTree = "<group>"; };
 		56865B29263170F700B14AE7 /* FigureClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FigureClassifier.mlmodel; sourceTree = "<group>"; };
 		56865B2C2631710500B14AE7 /* FigureClassifier_Rotate.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FigureClassifier_Rotate.mlmodel; sourceTree = "<group>"; };
 		56865B31263192FF00B14AE7 /* ShapeDetectorKeras.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ShapeDetectorKeras.mlmodel; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		566D024026399EAC00034C17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				566D024126399EC600034C17 /* Pen.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		56865B28263170CA00B14AE7 /* MLModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 		C7927574262C81C900EF5D3A /* MyMagicalHand */ = {
 			isa = PBXGroup;
 			children = (
+				566D024026399EAC00034C17 /* Model */,
 				56865B28263170CA00B14AE7 /* MLModel */,
 				C7927575262C81C900EF5D3A /* AppDelegate.swift */,
 				C7927577262C81C900EF5D3A /* SceneDelegate.swift */,
@@ -164,6 +175,7 @@
 				C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */,
 				56865B2A263170F700B14AE7 /* FigureClassifier.mlmodel in Sources */,
 				56865B2D2631710500B14AE7 /* FigureClassifier_Rotate.mlmodel in Sources */,
+				566D024226399EC600034C17 /* Pen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

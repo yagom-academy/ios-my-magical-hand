@@ -11,15 +11,9 @@ final class MainViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var matchProbabilityLabel: UILabel!
     
-    private var touchPoint = CGPoint.zero
-    private var penWidth:CGFloat = 10.0
-    private var penOpacity: CGFloat = 1.0
-    private var penColor = UIColor.black
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+    private lazy var pen: Pen = {
+       Pen()
+    }()
     
     @IBAction func touchUpEraseButton(_ sender: Any) {
         drawingImageView.image = nil
@@ -28,24 +22,26 @@ final class MainViewController: UIViewController {
 
 // MARK: - Drawing Methods
 extension MainViewController {
+    private func setupContext(_ context: CGContext, with pen: Pen) {
+        context.setLineCap(pen.lineCap)
+        context.setBlendMode(pen.blendMode)
+        context.setLineWidth(pen.width)
+        context.setStrokeColor(pen.color)
+    }
+ 
     private func drawLine(startPoint: CGPoint, endPoint: CGPoint) {
         UIGraphicsBeginImageContext(drawingImageView.frame.size)
         guard let context = UIGraphicsGetCurrentContext() else {
             return
         }
         
-        drawingImageView.image?.draw(in: drawingImageView.bounds)
-        
+        setupContext(context, with: pen)
         context.move(to: startPoint)
         context.addLine(to: endPoint)
-        context.setLineCap(.round)
-        context.setBlendMode(.normal)
-        context.setLineWidth(penWidth)
-        context.setStrokeColor(penColor.cgColor)
         context.strokePath()
         
+        drawingImageView.image?.draw(in: drawingImageView.bounds)
         drawingImageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        drawingImageView.alpha = penOpacity
         UIGraphicsEndImageContext()
     }
     
@@ -54,7 +50,7 @@ extension MainViewController {
             return
         }
         
-        touchPoint = touch.location(in: drawingImageView)
+        pen.currentPoint = touch.location(in: drawingImageView)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -63,7 +59,7 @@ extension MainViewController {
         }
         
         let currentPoint = touch.location(in: drawingImageView)
-        drawLine(startPoint: touchPoint, endPoint: currentPoint)
-        touchPoint = currentPoint
+        drawLine(startPoint: pen.currentPoint, endPoint: currentPoint)
+        pen.currentPoint = currentPoint
     }
 }
