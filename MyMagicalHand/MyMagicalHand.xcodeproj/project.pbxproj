@@ -10,6 +10,8 @@
 		B48E17F426392D360046558B /* ResultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E17F326392D360046558B /* ResultLabel.swift */; };
 		B48E17F726392F290046558B /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E17F626392F290046558B /* ActionButton.swift */; };
 		B48E17FA26397C590046558B /* MagicalHandStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E17F926397C590046558B /* MagicalHandStackView.swift */; };
+		B48E180F263995500046558B /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E180E263995500046558B /* ViewControllerTests.swift */; };
+		B48E1813263995B90046558B /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48E1812263995B90046558B /* ViewControllers.swift */; };
 		B4BB6A762630915300BD3712 /* ShapDetectorKeras.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B4BB6A752630915300BD3712 /* ShapDetectorKeras.mlmodel */; };
 		B4BB6A7B2630961900BD3712 /* DrawImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B4BB6A7A2630961900BD3712 /* DrawImageClassifier.mlmodel */; };
 		B4E780A72637ED770023B9B5 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E780A62637ED770023B9B5 /* CanvasView.swift */; };
@@ -21,10 +23,24 @@
 		C7927582262C81CB00EF5D3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7927580262C81CB00EF5D3A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B48E1805263995260046558B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C792756A262C81C900EF5D3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7927571262C81C900EF5D3A;
+			remoteInfo = MyMagicalHand;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		B48E17F326392D360046558B /* ResultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultLabel.swift; sourceTree = "<group>"; };
 		B48E17F626392F290046558B /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		B48E17F926397C590046558B /* MagicalHandStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicalHandStackView.swift; sourceTree = "<group>"; };
+		B48E1800263995260046558B /* MyMagicalHandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMagicalHandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B48E1804263995260046558B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B48E180E263995500046558B /* ViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
+		B48E1812263995B90046558B /* ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
 		B4BB6A752630915300BD3712 /* ShapDetectorKeras.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ShapDetectorKeras.mlmodel; sourceTree = "<group>"; };
 		B4BB6A7A2630961900BD3712 /* DrawImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DrawImageClassifier.mlmodel; sourceTree = "<group>"; };
 		B4E780A62637ED770023B9B5 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
@@ -39,6 +55,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B48E17FD263995260046558B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C792756F262C81C900EF5D3A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -66,6 +89,16 @@
 			path = MLModels;
 			sourceTree = "<group>";
 		};
+		B48E1801263995260046558B /* MyMagicalHandTests */ = {
+			isa = PBXGroup;
+			children = (
+				B48E1804263995260046558B /* Info.plist */,
+				B48E180E263995500046558B /* ViewControllerTests.swift */,
+				B48E1812263995B90046558B /* ViewControllers.swift */,
+			);
+			path = MyMagicalHandTests;
+			sourceTree = "<group>";
+		};
 		B4E780A52637ED620023B9B5 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				C7927574262C81C900EF5D3A /* MyMagicalHand */,
+				B48E1801263995260046558B /* MyMagicalHandTests */,
 				C7927573262C81C900EF5D3A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				C7927572262C81C900EF5D3A /* MyMagicalHand.app */,
+				B48E1800263995260046558B /* MyMagicalHandTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +147,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B48E17FF263995260046558B /* MyMagicalHandTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B48E1807263995260046558B /* Build configuration list for PBXNativeTarget "MyMagicalHandTests" */;
+			buildPhases = (
+				B48E17FC263995260046558B /* Sources */,
+				B48E17FD263995260046558B /* Frameworks */,
+				B48E17FE263995260046558B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B48E1806263995260046558B /* PBXTargetDependency */,
+			);
+			name = MyMagicalHandTests;
+			productName = MyMagicalHandTests;
+			productReference = B48E1800263995260046558B /* MyMagicalHandTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C7927571262C81C900EF5D3A /* MyMagicalHand */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7927586262C81CB00EF5D3A /* Build configuration list for PBXNativeTarget "MyMagicalHand" */;
@@ -138,6 +191,11 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					B48E17FF263995260046558B = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+						TestTargetID = C7927571262C81C900EF5D3A;
+					};
 					C7927571262C81C900EF5D3A = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -157,11 +215,19 @@
 			projectRoot = "";
 			targets = (
 				C7927571262C81C900EF5D3A /* MyMagicalHand */,
+				B48E17FF263995260046558B /* MyMagicalHandTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B48E17FE263995260046558B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7927570262C81C900EF5D3A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -175,6 +241,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B48E17FC263995260046558B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B48E1813263995B90046558B /* ViewControllers.swift in Sources */,
+				B48E180F263995500046558B /* ViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C792756E262C81C900EF5D3A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,6 +267,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B48E1806263995260046558B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7927571262C81C900EF5D3A /* MyMagicalHand */;
+			targetProxy = B48E1805263995260046558B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C792757B262C81C900EF5D3A /* Main.storyboard */ = {
@@ -213,6 +296,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B48E1808263995260046558B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SK9D9HK9A2;
+				INFOPLIST_FILE = MyMagicalHandTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.howift.MyMagicalHandTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyMagicalHand.app/MyMagicalHand";
+			};
+			name = Debug;
+		};
+		B48E1809263995260046558B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SK9D9HK9A2;
+				INFOPLIST_FILE = MyMagicalHandTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.howift.MyMagicalHandTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyMagicalHand.app/MyMagicalHand";
+			};
+			name = Release;
+		};
 		C7927584262C81CB00EF5D3A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -368,6 +494,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B48E1807263995260046558B /* Build configuration list for PBXNativeTarget "MyMagicalHandTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B48E1808263995260046558B /* Debug */,
+				B48E1809263995260046558B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C792756D262C81C900EF5D3A /* Build configuration list for PBXProject "MyMagicalHand" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
