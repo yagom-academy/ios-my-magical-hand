@@ -24,7 +24,30 @@ class ViewController: UIViewController {
         addButtonActions()
     }
     
-    //MARK: - Configure Views
+    private func addButtonActions() {
+        showResultButton.addTarget(self, action: #selector(didTapShowResultButton), for: .touchUpInside)
+        clearButton.addTarget(self, action: #selector(didTapClearButton(_:)), for: .touchUpInside)
+    }
+    
+    private func hideLabels() {
+        looksLikeLabel.isHidden = true
+        percentLabel.isHidden = true
+    }
+    
+    //MARK: - Actions
+    @objc private func didTapShowResultButton(_ sender: UIButton) {
+        looksLikeLabel.isHidden = false
+        percentLabel.isHidden = false
+    }
+    
+    @objc private func didTapClearButton(_ sender: UIButton) {
+        canvasView.erase()
+        hideLabels()
+    }
+}
+
+//MARK: - Configure Views
+extension ViewController {
     private func configureBackgroundView() {
         view.addSubview(backgroundView)
         backgroundView.frame = view.bounds
@@ -64,26 +87,4 @@ class ViewController: UIViewController {
             labelVerticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
         ])
     }
-    
-    private func addButtonActions() {
-        showResultButton.addTarget(self, action: #selector(didTapShowResultButton), for: .touchUpInside)
-        clearButton.addTarget(self, action: #selector(didTapClearButton(_:)), for: .touchUpInside)
-    }
-    
-    private func hideLabels() {
-        looksLikeLabel.isHidden = true
-        percentLabel.isHidden = true
-    }
-    
-    //MARK: - Actions
-    @objc private func didTapShowResultButton(_ sender: UIButton) {
-        looksLikeLabel.isHidden = false
-        percentLabel.isHidden = false
-    }
-    
-    @objc private func didTapClearButton(_ sender: UIButton) {
-        canvasView.erase()
-        hideLabels()
-    }
 }
-
