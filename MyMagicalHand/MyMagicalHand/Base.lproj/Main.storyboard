@@ -16,31 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-tq-rD6">
-                                <rect key="frame" x="20" y="521" width="70" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="결과보기">
-                                    <color key="titleColor" systemColor="systemOrangeColor"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="동그라미처럼 보이네요" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWR-2j-Pql">
-                                <rect key="frame" x="20" y="584" width="374" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동그라미처럼 보이네요" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWR-2j-Pql">
+                                <rect key="frame" x="20" y="584" width="374" height="33.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100.0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrO-83-jQ4">
-                                <rect key="frame" x="20" y="643" width="374" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrO-83-jQ4">
+                                <rect key="frame" x="170.5" y="641.5" width="73" height="26.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkQ-9g-ERA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkQ-9g-ERA">
                                 <rect key="frame" x="342" y="521" width="52" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="지우기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -49,14 +38,41 @@
                                     <action selector="touchUpEraseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xE3-Ym-bda"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u6X-cK-89l">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u6X-cK-89l">
                                 <rect key="frame" x="20" y="139" width="374" height="374"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="u6X-cK-89l" secondAttribute="height" multiplier="1:1" id="4aN-4G-O8p"/>
+                                </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpf-tq-rD6">
+                                <rect key="frame" x="20" y="521" width="70" height="36"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
+                                <state key="normal" title="결과보기">
+                                    <color key="titleColor" systemColor="systemOrangeColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IrO-83-jQ4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0pp-K6-lk1"/>
+                            <constraint firstItem="u6X-cK-89l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="4XF-5W-7Vk"/>
+                            <constraint firstItem="UkQ-9g-ERA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wpf-tq-rD6" secondAttribute="trailing" constant="8" symbolic="YES" id="AzI-EW-Duk"/>
+                            <constraint firstItem="UkQ-9g-ERA" firstAttribute="trailing" secondItem="MWR-2j-Pql" secondAttribute="trailing" id="EZ2-3x-lGQ"/>
+                            <constraint firstItem="u6X-cK-89l" firstAttribute="trailing" secondItem="UkQ-9g-ERA" secondAttribute="trailing" id="Gy1-aR-ti8"/>
+                            <constraint firstItem="MWR-2j-Pql" firstAttribute="leading" secondItem="wpf-tq-rD6" secondAttribute="leading" id="Nn7-CM-p3w"/>
+                            <constraint firstItem="wpf-tq-rD6" firstAttribute="top" secondItem="u6X-cK-89l" secondAttribute="bottom" constant="8" symbolic="YES" id="SsW-UG-oaU"/>
+                            <constraint firstItem="MWR-2j-Pql" firstAttribute="top" secondItem="wpf-tq-rD6" secondAttribute="bottom" constant="27" id="TIh-KT-dNF"/>
+                            <constraint firstItem="IrO-83-jQ4" firstAttribute="top" secondItem="MWR-2j-Pql" secondAttribute="bottom" constant="24" id="YK6-zE-9fi"/>
+                            <constraint firstItem="u6X-cK-89l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="YjC-6h-vMp"/>
+                            <constraint firstItem="u6X-cK-89l" firstAttribute="leading" secondItem="wpf-tq-rD6" secondAttribute="leading" id="bbs-Gl-A3k"/>
+                            <constraint firstItem="wpf-tq-rD6" firstAttribute="top" secondItem="u6X-cK-89l" secondAttribute="bottom" constant="8" symbolic="YES" id="fwX-aE-Kbj"/>
+                            <constraint firstItem="UkQ-9g-ERA" firstAttribute="trailing" secondItem="u6X-cK-89l" secondAttribute="trailing" id="jah-OV-hEE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u6X-cK-89l" secondAttribute="trailing" constant="20" id="jbD-vI-EKr"/>
+                            <constraint firstItem="UkQ-9g-ERA" firstAttribute="top" secondItem="u6X-cK-89l" secondAttribute="bottom" constant="8" symbolic="YES" id="lbg-eG-9uN"/>
+                            <constraint firstItem="wpf-tq-rD6" firstAttribute="leading" secondItem="u6X-cK-89l" secondAttribute="leading" id="wSa-Hs-bj2"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="drawingImageView" destination="u6X-cK-89l" id="r2F-Od-c1W"/>
