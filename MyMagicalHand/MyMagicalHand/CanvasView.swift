@@ -32,12 +32,11 @@ final class CanvasView: UIView {
         context.setLineCap(.round)
         
         lines.forEach { (line) in
-            for (index, point) in line.points.enumerated() {
-                if index == 0 {
-                    context.move(to: point)
-                } else {
-                    context.addLine(to: point)
-                }
+            if let startPoint = line.startPoint {
+                context.move(to: startPoint)
+            }
+            if let endPoint = line.endPoint {
+                context.addLine(to: endPoint)
             }
         }
         
@@ -45,19 +44,24 @@ final class CanvasView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        lines.append(Line())
+        guard let newPoint = touches.first?.location(in: self) else {
+            return
+        }
+        lines.append(Line(startPoint: newPoint, endPoint: nil))
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let point = touches.first?.location(in: self) else {
+        guard let newPoint = touches.first?.location(in: self) else {
             return
         }
         
         guard var lastLine = lines.popLast() else {
             return
         }
-        lastLine.points.append(point)
+        lastLine.endPoint = newPoint
         lines.append(lastLine)
+        let newLine = Line(startPoint: newPoint, endPoint: nil)
+        lines.append(newLine)
         setNeedsDisplay()
     }
     
