@@ -49,16 +49,16 @@ final class MainViewController: UIViewController {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let imageView = drawingView.frame.size
+        let imageViewSize = drawingView.frame.size
         
-        UIGraphicsBeginImageContext(imageView)
+        UIGraphicsBeginImageContext(imageViewSize)
         
         guard let context = UIGraphicsGetCurrentContext(), let touch = touches.first, let lastPoint = touchPoint else {
             return
         }
         let currentPoint = touch.location(in: drawingView)
         
-        drawingView.image?.draw(in: CGRect(x: 0, y: 0, width: imageView.width, height: imageView.height))
+        drawingView.image?.draw(in: CGRect(x: 0, y: 0, width: imageViewSize.width, height: imageViewSize.height))
         
         context.setLineWidth(10.0)
         context.setLineCap(CGLineCap.round)
