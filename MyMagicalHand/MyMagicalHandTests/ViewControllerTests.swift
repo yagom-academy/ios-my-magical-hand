@@ -43,4 +43,12 @@ class ViewControllerTests: XCTestCase {
         //then
         XCTAssertEqual(sut.canvasView.paths.count, 0)
     }
+    
+    func testController_whenTappedClearButton_labelsAreHidden() {
+        //when
+        sut.clearButton.sendActions(for: .touchUpInside)
+        //then
+        XCTAssertTrue(sut.looksLikeLabel.isHidden)
+        XCTAssertTrue(sut.percentLabel.isHidden)
+    }
 }
