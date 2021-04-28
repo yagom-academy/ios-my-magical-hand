@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         configureBackgroundView()
         configureCanvasView()
         configureStackViews()
-        hideLabelWhenStarted()
+        hideLabels()
         addButtonActions()
     }
     
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         clearButton.addTarget(self, action: #selector(didTapClearButton(_:)), for: .touchUpInside)
     }
     
-    private func hideLabelWhenStarted() {
+    private func hideLabels() {
         looksLikeLabel.isHidden = true
         percentLabel.isHidden = true
     }
@@ -83,6 +83,7 @@ class ViewController: UIViewController {
     
     @objc private func didTapClearButton(_ sender: UIButton) {
         canvasView.erase()
+        hideLabels()
     }
 }
 
