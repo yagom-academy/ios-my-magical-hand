@@ -55,8 +55,8 @@ final class MainViewController: UIViewController {
             return
         }
         let drawingViewCGRect = CGRect(x: 0, y: 0, width: drawingViewSize.width, height: drawingViewSize.height)
-        drawingView.image?.draw(in: drawingViewCGRect)
         configureContext(context: context, currentPoint: touch.location(in: drawingView))
+        drawingView.image?.draw(in: drawingViewCGRect)
         drawingView.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         super.touchesMoved(touches, with: event)
