@@ -1,4 +1,5 @@
 import UIKit
+import Vision
 
 class ViewController: UIViewController {
     // MARK: UI Components
@@ -34,12 +35,11 @@ class ViewController: UIViewController {
         labelStackView.alignment = .center
         labelStackView.spacing = 12
         labelStackView.distribution = .equalSpacing
+        labelStackView.isHidden = true
         return labelStackView
     }()
     private let returnResultLabel: UILabel = {
         let returnResultLabel = UILabel()
-        // TODO: Apply string interpolation
-        returnResultLabel.text = "동그라미처럼 보이네요"
         returnResultLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         returnResultLabel.textColor = .systemGray6
         returnResultLabel.numberOfLines = 0
@@ -47,12 +47,24 @@ class ViewController: UIViewController {
     }()
     private let similarProportionLabel: UILabel = {
         let similarProportionLabel = UILabel()
-        // TODO: Apply string interpolation
-        similarProportionLabel.text = "100.0%"
         similarProportionLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         similarProportionLabel.textColor = .systemGray2
         similarProportionLabel.numberOfLines = 0
         return similarProportionLabel
+    }()
+    
+    lazy var classificationRequest: VNCoreMLRequest = {
+        do {
+//            let model = try VNCoreMLModel(for: ShapeImageClassifier().model)
+            let model = try VNCoreMLModel(for: ShapeDetectorKeras().model)
+            let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
+                self?.processClassifications(for: request, error: error)
+            })
+            request.imageCropAndScaleOption = .centerCrop
+            return request
+        } catch {
+            fatalError("Failed to load Vision ML model: \(error)")
+        }
     }()
 
     // MARK:- View life cycle
@@ -110,11 +122,56 @@ extension ViewController {
 
     //MARK: Selectors
     @objc private func removeDrawing() {
+        returnResultLabel.text = ""
+        similarProportionLabel.text = ""
         labelStackView.isHidden = true
         canvasView.eraseAll()
     }
 
     @objc private func showResult() {
+        guard let image = canvasView.exportDrawing() else {
+            return
+        }
+        updateClassifications(for: image)
         labelStackView.isHidden = false
+    }
+    
+    private func updateClassifications(for image: UIImage) {
+        guard let orientation = CGImagePropertyOrientation(rawValue: UInt32(image.imageOrientation.rawValue)) else {
+            return
+        }
+        guard let ciImage = CIImage(image: image) else {
+            fatalError("Unable to create \(CIImage.self) from \(image).")
+        }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let handler = VNImageRequestHandler(ciImage: ciImage, orientation: orientation)
+            do {
+                try handler.perform([self.classificationRequest])
+            } catch {
+                print("Failed to perform classification.\n\(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func processClassifications(for request: VNRequest, error: Error?) {
+        DispatchQueue.main.async {
+            guard let results = request.results,
+                  let classifications = results as? [VNClassificationObservation] else {
+                return
+            }
+            let topClassifications = classifications.prefix(1)
+            let descriptions = topClassifications.map { classification in
+                return (confidence: classification.confidence, identifier: classification.identifier)
+            }
+            guard let shape = descriptions.first?.identifier,
+                  let confidence = descriptions.first?.confidence else {
+                self.returnResultLabel.text = "결과를 도출할 수 없습니다."
+                return
+            }
+            let similarProportion = (confidence * 100).rounded()
+            self.returnResultLabel.text = "\(shape)처럼 보이네요."
+            self.similarProportionLabel.text = "\(similarProportion) %"
+        }
     }
 }
