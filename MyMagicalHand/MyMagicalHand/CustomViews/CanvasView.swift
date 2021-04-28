@@ -50,6 +50,7 @@ extension CanvasView {
     }
 
     func erase() {
+        paths.removeAll()
         setNeedsDisplay()
     }
 }
