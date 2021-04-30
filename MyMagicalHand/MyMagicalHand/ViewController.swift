@@ -1,9 +1,10 @@
 import UIKit
+import Vision
 
 class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     private var shapeName: String = "동그라미"
-    private var probability: Double = 100.0
+    private var probability: Double = 80.0
     
     @IBOutlet weak var drawView: UIImageView!
     private var beforePoint: CGPoint!
@@ -15,6 +16,20 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.systemGray6
         resultLabel.isHidden = true
     }
+    
+    lazy var classificationRequest: VNCoreMLRequest = {
+        do {
+            let configuration = MLModelConfiguration()
+            let model = try VNCoreMLModel(for: ShapesClassifier(configuration: configuration).model)
+            let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
+                self?.processClassifications(for: request, error: error)
+            })
+            request.imageCropAndScaleOption = .centerCrop
+            return request
+        } catch {
+            fatalError("Failed to load Vision ML model: \(error)")
+        }
+    }()
     
     // MARK: - 결과보기 버튼 클릭 액션
     @IBAction func clickOnResult(_ sender: UIButton) {
