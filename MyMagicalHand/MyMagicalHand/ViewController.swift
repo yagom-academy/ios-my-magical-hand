@@ -80,3 +80,24 @@ class ViewController: UIViewController {
         context.setLineWidth(10.0)
     }
 }
+
+// MARK: - 코어 모델 연동 및 예측
+extension ViewController {
+    private func updateClassifications(for image: UIImage) {
+        guard let orientation = CGImagePropertyOrientation(rawValue: UInt32(image.imageOrientation.rawValue)) else {
+            return
+        }
+        guard let ciImage = CIImage(image: image) else {
+            fatalError("Unable to create \(CIImage.self) from \(image).")
+        }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let handler = VNImageRequestHandler(ciImage: ciImage, orientation: orientation)
+            do {
+                try handler.perform([self.classificationRequest])
+            } catch {
+                print("Failed to perform classification.\n\(error.localizedDescription)")
+            }
+        }
+    }
+}
