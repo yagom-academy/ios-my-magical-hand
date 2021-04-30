@@ -33,6 +33,8 @@ class ViewController: UIViewController {
     
     // MARK: - 결과보기 버튼 클릭 액션
     @IBAction func clickOnResult(_ sender: UIButton) {
+        updateClassifications(for: drawView.image!)
+        
         resultLabel.text = "\(shapeName)처럼 보이네요 \n \(probability)%"
         resultLabel.isHidden = false
     }
@@ -83,6 +85,7 @@ class ViewController: UIViewController {
 
 // MARK: - 코어 모델 연동 및 예측
 extension ViewController {
+    // MARK: - 모델 예측
     private func updateClassifications(for image: UIImage) {
         guard let orientation = CGImagePropertyOrientation(rawValue: UInt32(image.imageOrientation.rawValue)) else {
             return
@@ -98,6 +101,27 @@ extension ViewController {
             } catch {
                 print("Failed to perform classification.\n\(error.localizedDescription)")
             }
+        }
+    }
+    
+    //MARK: - 예측 결과
+    private func processClassifications(for request: VNRequest, error: Error?) {
+        DispatchQueue.main.async {
+            guard let results = request.results,
+                  let classifications = results as? [VNClassificationObservation] else {
+                return
+            }
+            let topClassifications = classifications.prefix(2)
+            let descriptions = topClassifications.map { classification in
+                return (classification.confidence, classification.identifier)
+            }
+            
+            guard let identifier = descriptions.first?.1, let confidence = descriptions.first?.0 else {
+                return
+            }
+            
+            self.shapeName = identifier
+            self.probability = Double(confidence * 100).rounded()
         }
     }
 }
