@@ -33,8 +33,6 @@ class ViewController: UIViewController {
     
     // MARK: - 결과보기 버튼 클릭 액션
     @IBAction func clickOnResult(_ sender: UIButton) {
-        updateClassifications(for: drawView.image!)
-        
         resultLabel.text = "\(shapeName)처럼 보이네요 \n \(probability)%"
         resultLabel.isHidden = false
     }
@@ -70,9 +68,16 @@ class ViewController: UIViewController {
         context.strokePath()
 
         drawView.image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        guard let drawImage = drawView.image else {
+            return
+        }
+        
         beforePoint = afterPoint
         
         UIGraphicsEndImageContext()
+        
+        updateClassifications(for: drawImage)
     }
     
     // MARK: - 컨텍스트 설정
