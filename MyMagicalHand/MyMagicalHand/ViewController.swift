@@ -35,6 +35,12 @@ class ViewController: UIViewController {
     @IBAction func clickOnResult(_ sender: UIButton) {
         resultLabel.text = "\(shapeName)처럼 보이네요 \n \(probability)%"
         resultLabel.isHidden = false
+        
+        guard let drawImage = drawView.image else {
+            return
+        }
+        
+        updateClassifications(for: drawImage)
     }
     
     // MARK: - 지우기 버튼 클릭 액션
@@ -69,15 +75,9 @@ class ViewController: UIViewController {
 
         drawView.image = UIGraphicsGetImageFromCurrentImageContext()
         
-        guard let drawImage = drawView.image else {
-            return
-        }
-        
         beforePoint = afterPoint
         
         UIGraphicsEndImageContext()
-        
-        updateClassifications(for: drawImage)
     }
     
     // MARK: - 컨텍스트 설정
