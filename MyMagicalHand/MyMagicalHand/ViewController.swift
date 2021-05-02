@@ -96,7 +96,8 @@ extension ViewController {
             return
         }
         guard let ciImage = CIImage(image: image) else {
-            fatalError("Unable to create \(CIImage.self) from \(image).")
+            print(ClassificationError.createImageFail.localizedDescription)
+            return
         }
         
         DispatchQueue.global(qos: .userInitiated).async {

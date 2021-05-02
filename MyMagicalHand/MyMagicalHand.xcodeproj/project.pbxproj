@@ -16,6 +16,7 @@
 		C792757D262C81C900EF5D3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C792757B262C81C900EF5D3A /* Main.storyboard */; };
 		C792757F262C81CB00EF5D3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C792757E262C81CB00EF5D3A /* Assets.xcassets */; };
 		C7927582262C81CB00EF5D3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7927580262C81CB00EF5D3A /* LaunchScreen.storyboard */; };
+		E638B7FE263E8DAC008DB30F /* ClassificationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E638B7FD263E8DAC008DB30F /* ClassificationError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C792757E262C81CB00EF5D3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7927581262C81CB00EF5D3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7927583262C81CB00EF5D3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E638B7FD263E8DAC008DB30F /* ClassificationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				9A94A2242630149700116274 /* MLModel */,
 				9A934F21262E91F000DE66A9 /* Supporting Files */,
 				C7927579262C81C900EF5D3A /* ViewController.swift */,
+				E638B7FD263E8DAC008DB30F /* ClassificationError.swift */,
 				9ACBA2692633A11F001AE3F2 /* Model.swift */,
 				C792757B262C81C900EF5D3A /* Main.storyboard */,
 			);
@@ -167,6 +170,7 @@
 				9A94A2222630148E00116274 /* ShapeKeras.mlmodel in Sources */,
 				9ACBA26A2633A11F001AE3F2 /* Model.swift in Sources */,
 				C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */,
+				E638B7FE263E8DAC008DB30F /* ClassificationError.swift in Sources */,
 				C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
