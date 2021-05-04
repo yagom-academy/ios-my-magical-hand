@@ -1,4 +1,5 @@
 import UIKit
+import Vision
 
 class ViewController: UIViewController {
     // MARK: UI Components
@@ -34,12 +35,11 @@ class ViewController: UIViewController {
         labelStackView.alignment = .center
         labelStackView.spacing = 12
         labelStackView.distribution = .equalSpacing
+        labelStackView.isHidden = true
         return labelStackView
     }()
     private let returnResultLabel: UILabel = {
         let returnResultLabel = UILabel()
-        // TODO: Apply string interpolation
-        returnResultLabel.text = "동그라미처럼 보이네요"
         returnResultLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         returnResultLabel.textColor = .systemGray6
         returnResultLabel.numberOfLines = 0
@@ -47,12 +47,25 @@ class ViewController: UIViewController {
     }()
     private let similarProportionLabel: UILabel = {
         let similarProportionLabel = UILabel()
-        // TODO: Apply string interpolation
-        similarProportionLabel.text = "100.0%"
         similarProportionLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         similarProportionLabel.textColor = .systemGray2
         similarProportionLabel.numberOfLines = 0
         return similarProportionLabel
+    }()
+    
+    lazy var classificationRequest: VNCoreMLRequest? = {
+        do {
+            let configuration = MLModelConfiguration()
+            let model = try VNCoreMLModel(for: ShapeDetectorKeras(configuration: configuration).model)
+            let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
+                self?.processClassifications(for: request, error: error)
+            })
+            request.imageCropAndScaleOption = .centerCrop
+            return request
+        } catch {
+            returnResultLabel.text = "모델을 로드하는데 실패했습니다."
+            return nil
+        }
     }()
 
     // MARK:- View life cycle
@@ -110,11 +123,69 @@ extension ViewController {
 
     //MARK: Selectors
     @objc private func removeDrawing() {
+        returnResultLabel.text = ""
+        similarProportionLabel.text = ""
         labelStackView.isHidden = true
         canvasView.eraseAll()
     }
 
     @objc private func showResult() {
+        updateClassifications()
         labelStackView.isHidden = false
+    }
+    
+    private func updateClassifications() {
+        guard let image = canvasView.exportDrawing(),
+              let orientation = CGImagePropertyOrientation(rawValue: UInt32(image.imageOrientation.rawValue)) else {
+            return
+        }
+        guard let ciImage = CIImage(image: image) else {
+            self.returnResultLabel.text = "이미지에 문제가 있습니다!"
+            return
+        }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let handler = VNImageRequestHandler(ciImage: ciImage, orientation: orientation)
+            self.dispatchWork(handler, retry: 3)
+        }
+    }
+
+    private func dispatchWork(_ handler: VNImageRequestHandler, retry count: Int) {
+        guard count > 0 else {
+            returnResultLabel.text = "재시도 했으나 이미지 분류에 실패했습니다."
+            return
+        }
+        do {
+            if let classificationRequest = self.classificationRequest {
+                try handler.perform([classificationRequest])
+            }
+        } catch {
+            dispatchWork(handler, retry: count - 1)
+        }
+    }
+    
+    private func processClassifications(for request: VNRequest, error: Error?) {
+        DispatchQueue.main.async {
+            guard let results = request.results,
+                  let classifications = results as? [VNClassificationObservation] else {
+                return
+            }
+            let topClassifications = classifications.prefix(1)
+            let descriptions = topClassifications.map { classification in
+                return (confidence: classification.confidence, identifier: classification.identifier)
+            }
+            self.updateLabel(descriptions)
+        }
+    }
+
+    private func updateLabel(_ descriptions: [(confidence: VNConfidence, identifier: String)] ) {
+        guard let shape = descriptions.first?.identifier,
+              let confidence = descriptions.first?.confidence else {
+            self.returnResultLabel.text = "결과를 도출할 수 없습니다."
+            return
+        }
+        let similarProportion = (confidence * 100).rounded()
+        self.returnResultLabel.text = "\(shape)처럼 보이네요."
+        self.similarProportionLabel.text = "\(similarProportion) %"
     }
 }

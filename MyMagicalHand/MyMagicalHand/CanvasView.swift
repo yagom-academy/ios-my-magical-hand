@@ -28,7 +28,7 @@ final class CanvasView: UIView {
             return
         }
         
-        context.setLineWidth(10)
+        context.setLineWidth(20)
         context.setLineCap(.round)
         
         lines.forEach { (line) in
@@ -68,6 +68,16 @@ final class CanvasView: UIView {
     func eraseAll() {
         lines.removeAll()
         setNeedsDisplay()
+    }
+    
+    func exportDrawing() -> UIImage? {
+        UIGraphicsBeginImageContext(frame.size)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        
+        draw(layer, in: context)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
     
 }
