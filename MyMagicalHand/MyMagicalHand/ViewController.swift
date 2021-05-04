@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         return similarProportionLabel
     }()
     
-    lazy var classificationRequest: VNCoreMLRequest = {
+    lazy var classificationRequest: VNCoreMLRequest? = {
         do {
             let configuration = MLModelConfiguration()
             let model = try VNCoreMLModel(for: ShapeDetectorKeras(configuration: configuration).model)
@@ -63,7 +63,8 @@ class ViewController: UIViewController {
             request.imageCropAndScaleOption = .centerCrop
             return request
         } catch {
-            fatalError("Failed to load Vision ML model: \(error)")
+            returnResultLabel.text = "모델을 로드하는데 실패했습니다."
+            return nil
         }
     }()
 
@@ -129,28 +130,37 @@ extension ViewController {
     }
 
     @objc private func showResult() {
-        guard let image = canvasView.exportDrawing() else {
-            return
-        }
-        updateClassifications(for: image)
+        updateClassifications()
         labelStackView.isHidden = false
     }
     
-    private func updateClassifications(for image: UIImage) {
-        guard let orientation = CGImagePropertyOrientation(rawValue: UInt32(image.imageOrientation.rawValue)) else {
+    private func updateClassifications() {
+        guard let image = canvasView.exportDrawing(),
+              let orientation = CGImagePropertyOrientation(rawValue: UInt32(image.imageOrientation.rawValue)) else {
             return
         }
         guard let ciImage = CIImage(image: image) else {
-            fatalError("Unable to create \(CIImage.self) from \(image).")
+            self.returnResultLabel.text = "이미지에 문제가 있습니다!"
+            return
         }
         
         DispatchQueue.global(qos: .userInitiated).async {
             let handler = VNImageRequestHandler(ciImage: ciImage, orientation: orientation)
-            do {
-                try handler.perform([self.classificationRequest])
-            } catch {
-                print("Failed to perform classification.\n\(error.localizedDescription)")
+            self.dispatchWork(handler, retry: 3)
+        }
+    }
+
+    private func dispatchWork(_ handler: VNImageRequestHandler, retry count: Int) {
+        guard count > 0 else {
+            returnResultLabel.text = "재시도 했으나 이미지 분류에 실패했습니다."
+            return
+        }
+        do {
+            if let classificationRequest = self.classificationRequest {
+                try handler.perform([classificationRequest])
             }
+        } catch {
+            dispatchWork(handler, retry: count - 1)
         }
     }
     
@@ -164,14 +174,18 @@ extension ViewController {
             let descriptions = topClassifications.map { classification in
                 return (confidence: classification.confidence, identifier: classification.identifier)
             }
-            guard let shape = descriptions.first?.identifier,
-                  let confidence = descriptions.first?.confidence else {
-                self.returnResultLabel.text = "결과를 도출할 수 없습니다."
-                return
-            }
-            let similarProportion = (confidence * 100).rounded()
-            self.returnResultLabel.text = "\(shape)처럼 보이네요."
-            self.similarProportionLabel.text = "\(similarProportion) %"
+            self.updateLabel(descriptions)
         }
+    }
+
+    private func updateLabel(_ descriptions: [(confidence: VNConfidence, identifier: String)] ) {
+        guard let shape = descriptions.first?.identifier,
+              let confidence = descriptions.first?.confidence else {
+            self.returnResultLabel.text = "결과를 도출할 수 없습니다."
+            return
+        }
+        let similarProportion = (confidence * 100).rounded()
+        self.returnResultLabel.text = "\(shape)처럼 보이네요."
+        self.similarProportionLabel.text = "\(similarProportion) %"
     }
 }
