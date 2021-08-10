@@ -10,24 +10,9 @@ import UIKit
 class DrawingView: UIView {
     typealias ButtonAction = () -> Void
 
-    let viewController: UIViewController
-    let resultText: String?
+    var resultText: String?
     @objc var resultButtonAction: ButtonAction?
     @objc var deleteButtonAction: ButtonAction?
-
-    init(viewController: UIViewController,
-         resultText: String, deleteButtonAction: @escaping () -> Void,
-         buttonAction: @escaping () -> Void) {
-        self.viewController = viewController
-        self.resultButtonAction = buttonAction
-        self.deleteButtonAction = deleteButtonAction
-        self.resultText = resultText
-        super.init()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     var containerView: UIStackView = {
         let stackView = UIStackView()

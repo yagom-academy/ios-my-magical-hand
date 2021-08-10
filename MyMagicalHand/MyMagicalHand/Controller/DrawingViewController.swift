@@ -8,6 +8,8 @@ import UIKit
 
 class DrawingViewController: UIViewController {
 
+    let drawingView = DrawingView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
