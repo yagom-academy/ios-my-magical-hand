@@ -1,15 +1,15 @@
 //
-//  MyMagicalHand - ViewController.swift
+//  MyMagicalHand - DrawingViewController.swift
 //  Created by yagom. 
 //  Copyright © yagom. All rights reserved.
 // 
 
 import UIKit
 
-class ViewController: UIViewController {
+class DrawingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .gray
     }
 }
