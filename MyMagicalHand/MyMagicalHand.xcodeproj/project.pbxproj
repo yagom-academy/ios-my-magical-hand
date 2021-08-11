@@ -74,6 +74,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7927586262C81CB00EF5D3A /* Build configuration list for PBXNativeTarget "MyMagicalHand" */;
 			buildPhases = (
+				38ABB89326C3D7FD00471647 /* SwiftLint Script */,
 				C792756E262C81C900EF5D3A /* Sources */,
 				C792756F262C81C900EF5D3A /* Frameworks */,
 				C7927570262C81C900EF5D3A /* Resources */,
@@ -131,6 +132,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38ABB89326C3D7FD00471647 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C792756E262C81C900EF5D3A /* Sources */ = {
