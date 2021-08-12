@@ -9,10 +9,10 @@ import UIKit
 class DrawingViewController: UIViewController {
 
     let drawingView = DrawingView()
-    let lastPoint = CGPoint.zero
     let color = UIColor.black
     let brushWidth: CGFloat = 10.0
     let opacity: CGFloat = 1.0
+    var lastPoint = CGPoint.zero
     var swiped = false
 
     override func viewDidLoad() {
@@ -21,6 +21,8 @@ class DrawingViewController: UIViewController {
         view.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         self.view.addSubview(drawingView)
         drawingView.configure()
+        drawingView.deleteButton.addTarget(self, action: #selector(resetImage), for: .touchUpInside)
+        drawingView.resultButton.addTarget(self, action: #selector(showResult), for: .touchUpInside)
 
         NSLayoutConstraint.activate([
             drawingView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
@@ -28,6 +30,14 @@ class DrawingViewController: UIViewController {
             drawingView.centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.centerYAnchor),
             drawingView.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.7)
         ])
+    }
+
+    @objc func resetImage() {
+        drawingView.canvasView.image = nil
+    }
+
+    @objc func showResult() {
+
     }
 }
 

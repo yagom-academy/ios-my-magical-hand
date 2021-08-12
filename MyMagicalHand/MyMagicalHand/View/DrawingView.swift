@@ -11,9 +11,6 @@ class DrawingView: UIView {
     typealias ButtonAction = () -> Void
 
     var resultText: String?
-    @objc var resultButtonAction: ButtonAction?
-    @objc var deleteButtonAction: ButtonAction?
-
     var containerView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -42,7 +39,6 @@ class DrawingView: UIView {
 
     var resultButton: UIButton = {
         let button = UIButton()
-        button.addTarget(DrawingViewController.self, action: #selector(getter: resultButtonAction), for: .touchUpInside)
         button.contentHorizontalAlignment = .leading
         button.setTitle("결과보기", for: .normal)
         button.setTitleColor(.systemYellow, for: .normal)
@@ -53,7 +49,6 @@ class DrawingView: UIView {
 
     var deleteButton: UIButton = {
         let button = UIButton()
-        button.addTarget(DrawingViewController.self, action: #selector(getter: deleteButtonAction), for: .touchUpInside)
         button.contentHorizontalAlignment = .trailing
         button.setTitle("지우기", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -102,10 +97,5 @@ class DrawingView: UIView {
 
             canvasView.heightAnchor.constraint(equalTo: canvasView.widthAnchor)
         ])
-    }
-
-    func activate(resultButtonAction: @escaping ButtonAction, deleteButtonAction: @escaping ButtonAction) {
-        self.resultButtonAction = resultButtonAction
-        self.deleteButtonAction = deleteButtonAction
     }
 }
