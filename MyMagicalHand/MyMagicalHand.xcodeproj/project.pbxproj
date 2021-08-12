@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3806C3E026C4F85A008C3B47 /* MyShapesClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3806C3DF26C4F85A008C3B47 /* MyShapesClassifier.mlmodel */; };
 		C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927575262C81C900EF5D3A /* AppDelegate.swift */; };
 		C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927577262C81C900EF5D3A /* SceneDelegate.swift */; };
 		C792757A262C81C900EF5D3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927579262C81C900EF5D3A /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3806C3DF26C4F85A008C3B47 /* MyShapesClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = MyShapesClassifier.mlmodel; path = ../../../MyShapesClassifier.mlmodel; sourceTree = "<group>"; };
 		C7927572262C81C900EF5D3A /* MyMagicalHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMagicalHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7927575262C81C900EF5D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7927577262C81C900EF5D3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				C7927575262C81C900EF5D3A /* AppDelegate.swift */,
 				C7927577262C81C900EF5D3A /* SceneDelegate.swift */,
 				C7927579262C81C900EF5D3A /* ViewController.swift */,
+				3806C3DF26C4F85A008C3B47 /* MyShapesClassifier.mlmodel */,
 				C792757B262C81C900EF5D3A /* Main.storyboard */,
 				C792757E262C81CB00EF5D3A /* Assets.xcassets */,
 				C7927580262C81CB00EF5D3A /* LaunchScreen.storyboard */,
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C792757A262C81C900EF5D3A /* ViewController.swift in Sources */,
+				3806C3E026C4F85A008C3B47 /* MyShapesClassifier.mlmodel in Sources */,
 				C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */,
 				C7927578262C81C900EF5D3A /* SceneDelegate.swift in Sources */,
 			);
