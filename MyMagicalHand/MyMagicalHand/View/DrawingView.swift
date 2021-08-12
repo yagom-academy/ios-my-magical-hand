@@ -24,8 +24,8 @@ class DrawingView: UIView {
         return stackView
     }()
 
-    var canvasView: UIView = {
-        let drawingView = UIView()
+    var canvasView: UIImageView = {
+        let drawingView = UIImageView()
         drawingView.backgroundColor = .white
         drawingView.translatesAutoresizingMaskIntoConstraints = false
         return drawingView
