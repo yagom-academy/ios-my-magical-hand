@@ -9,10 +9,10 @@ import UIKit
 class DrawingViewController: UIViewController {
 
     let drawingView = DrawingView()
-    var lastPoint = CGPoint.zero
-    var color = UIColor.black
-    var brushWidth: CGFloat = 10.0
-    var opacity: CGFloat = 1.0
+    let lastPoint = CGPoint.zero
+    let color = UIColor.black
+    let brushWidth: CGFloat = 10.0
+    let opacity: CGFloat = 1.0
     var swiped = false
 
     override func viewDidLoad() {
@@ -29,14 +29,9 @@ class DrawingViewController: UIViewController {
             drawingView.heightAnchor.constraint(equalTo: view.layoutMarginsGuide.heightAnchor, multiplier: 0.7)
         ])
     }
+}
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else {
-            return
-        }
-        swiped = false
-        lastPoint = touch.location(in: drawingView.canvasView)
-    }
+extension DrawingViewController {
 
     func drawLine(from fromPoint: CGPoint, to toPoint: CGPoint) {
         UIGraphicsBeginImageContext(drawingView.canvasView.frame.size)
@@ -54,6 +49,14 @@ class DrawingViewController: UIViewController {
         drawingView.canvasView.image = UIGraphicsGetImageFromCurrentImageContext()
         drawingView.canvasView.alpha = opacity
         UIGraphicsEndImageContext()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {
+            return
+        }
+        swiped = false
+        lastPoint = touch.location(in: drawingView.canvasView)
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
