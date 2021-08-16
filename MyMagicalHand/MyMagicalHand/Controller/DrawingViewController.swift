@@ -9,17 +9,17 @@ import UIKit
 class DrawingViewController: UIViewController {
 
     let drawingView = DrawingView()
-    let color = UIColor.black
+    let strokeColor = UIColor.black
     let brushWidth: CGFloat = 10.0
     let opacity: CGFloat = 1.0
-    var lastPoint = CGPoint.zero
+    var lastTouchedPoint = CGPoint.zero
     var swiped = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .darkGray
         view.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-        self.view.addSubview(drawingView)
+        view.addSubview(drawingView)
         drawingView.configure()
         drawingView.deleteButton.addTarget(self, action: #selector(resetImage), for: .touchUpInside)
         drawingView.resultButton.addTarget(self, action: #selector(showResult), for: .touchUpInside)
@@ -54,7 +54,7 @@ extension DrawingViewController {
         context.setLineCap(.round)
         context.setBlendMode(.normal)
         context.setLineWidth(brushWidth)
-        context.setStrokeColor(color.cgColor)
+        context.setStrokeColor(strokeColor.cgColor)
         context.strokePath()
         drawingView.canvasView.image = UIGraphicsGetImageFromCurrentImageContext()
         drawingView.canvasView.alpha = opacity
@@ -66,7 +66,7 @@ extension DrawingViewController {
             return
         }
         swiped = false
-        lastPoint = touch.location(in: drawingView.canvasView)
+        lastTouchedPoint = touch.location(in: drawingView.canvasView)
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -75,13 +75,13 @@ extension DrawingViewController {
         }
         swiped = true
         let currentPoint = touch.location(in: drawingView.canvasView)
-        drawLine(from: lastPoint, to: currentPoint)
-        lastPoint = currentPoint
+        drawLine(from: lastTouchedPoint, to: currentPoint)
+        lastTouchedPoint = currentPoint
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !swiped {
-            drawLine(from: lastPoint, to: lastPoint)
+            drawLine(from: lastTouchedPoint, to: lastTouchedPoint)
         }
     }
 }
