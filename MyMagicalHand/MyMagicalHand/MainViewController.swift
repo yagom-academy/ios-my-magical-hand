@@ -6,8 +6,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class MainViewController: UIViewController {
+    
+    let mainStackView = MainStackView()
+    let buttonStackView = ButtonStackView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
