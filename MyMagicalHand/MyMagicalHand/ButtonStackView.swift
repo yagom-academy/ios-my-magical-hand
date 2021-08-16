@@ -21,7 +21,7 @@ class ButtonStackView: UIStackView {
     func configure() {
         axis = .horizontal
         alignment = .fill
-        distribution = .fill
+        distribution = .fillEqually
         spacing = 10
         translatesAutoresizingMaskIntoConstraints = false
     }
