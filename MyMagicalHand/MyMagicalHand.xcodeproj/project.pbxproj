@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44C2240F3B5880D8BE8B7D5A /* Pods_MyMagicalHand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AB92A5361AE3F8342CAFF1 /* Pods_MyMagicalHand.framework */; };
 		B4B8863926C15EEE00E33C40 /* CreateMLClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B4B8863826C15EEE00E33C40 /* CreateMLClassifier.mlmodel */; };
 		B4B8864026C1601400E33C40 /* KerasClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B4B8863F26C1601400E33C40 /* KerasClassifier.mlmodel */; };
 		C7927576262C81C900EF5D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927575262C81C900EF5D3A /* AppDelegate.swift */; };
@@ -18,8 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06714E919283968561B9A742 /* Pods-MyMagicalHand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMagicalHand.debug.xcconfig"; path = "Target Support Files/Pods-MyMagicalHand/Pods-MyMagicalHand.debug.xcconfig"; sourceTree = "<group>"; };
 		B4B8863826C15EEE00E33C40 /* CreateMLClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CreateMLClassifier.mlmodel; path = ../../../../../../Documents/CreateMLClassifier.mlmodel; sourceTree = "<group>"; };
 		B4B8863F26C1601400E33C40 /* KerasClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = KerasClassifier.mlmodel; path = ../../../../../../Downloads/KerasClassifier.mlmodel; sourceTree = "<group>"; };
+		C506D3D90BEACA46E8DF195F /* Pods-MyMagicalHand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyMagicalHand.release.xcconfig"; path = "Target Support Files/Pods-MyMagicalHand/Pods-MyMagicalHand.release.xcconfig"; sourceTree = "<group>"; };
 		C7927572262C81C900EF5D3A /* MyMagicalHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMagicalHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7927575262C81C900EF5D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7927577262C81C900EF5D3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +31,7 @@
 		C792757E262C81CB00EF5D3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7927581262C81CB00EF5D3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7927583262C81CB00EF5D3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0AB92A5361AE3F8342CAFF1 /* Pods_MyMagicalHand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyMagicalHand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44C2240F3B5880D8BE8B7D5A /* Pods_MyMagicalHand.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E609F04A27766734B9C5E43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0AB92A5361AE3F8342CAFF1 /* Pods_MyMagicalHand.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		903388B2E64FAFC865D8D6CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06714E919283968561B9A742 /* Pods-MyMagicalHand.debug.xcconfig */,
+				C506D3D90BEACA46E8DF195F /* Pods-MyMagicalHand.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C7927569262C81C900EF5D3A = {
 			isa = PBXGroup;
 			children = (
 				C7927574262C81C900EF5D3A /* MyMagicalHand */,
 				C7927573262C81C900EF5D3A /* Products */,
+				903388B2E64FAFC865D8D6CF /* Pods */,
+				6E609F04A27766734B9C5E43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,9 +104,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7927586262C81CB00EF5D3A /* Build configuration list for PBXNativeTarget "MyMagicalHand" */;
 			buildPhases = (
+				1BB88012D878E5B3C33CDC90 /* [CP] Check Pods Manifest.lock */,
 				C792756E262C81C900EF5D3A /* Sources */,
 				C792756F262C81C900EF5D3A /* Frameworks */,
 				C7927570262C81C900EF5D3A /* Resources */,
+				B49AA46726CA61EB00D9AEEA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -137,6 +163,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1BB88012D878E5B3C33CDC90 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyMagicalHand-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B49AA46726CA61EB00D9AEEA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n${PODS_ROOT}/SwiftLint/swiftlint\n\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C792756E262C81C900EF5D3A /* Sources */ = {
@@ -291,6 +359,7 @@
 		};
 		C7927587262C81CB00EF5D3A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06714E919283968561B9A742 /* Pods-MyMagicalHand.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,6 +378,7 @@
 		};
 		C7927588262C81CB00EF5D3A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C506D3D90BEACA46E8DF195F /* Pods-MyMagicalHand.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
