@@ -8,7 +8,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    let mainImageView = UIImageView()
     let tempImageView = UIImageView()
     let canvasView = UIView()
     let shapeLabel = ResultLabel()
@@ -18,11 +17,15 @@ class MainViewController: UIViewController {
     let mainStackView = MainStackView()
     let buttonStackView = ButtonStackView()
     
-
+    var lastPoint = CGPoint.zero
+    var color = UIColor.black
+    var brushWidth: CGFloat = 10.0
+    var opacity: CGFloat = 1.0
+    var swiped = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.systemGray
-        configureMainImageView()
         configureEstimateButton()
         configureResetButton()
         configureTempImageView()
@@ -31,22 +34,77 @@ class MainViewController: UIViewController {
         configureResultLabel()
         configureProbabilityLabel()
         configureMainStackView()
-
     }
     
-    func configureMainImageView() {
-        canvasView.addSubview(mainImageView)
-        mainImageView.backgroundColor = UIColor.white
-        mainImageView.translatesAutoresizingMaskIntoConstraints = false
+    /// Functional Methods
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {
+            return
+        }
         
-        NSLayoutConstraint.activate([
-            mainImageView.topAnchor.constraint(equalTo: canvasView.safeAreaLayoutGuide.topAnchor),
-            mainImageView.bottomAnchor.constraint(equalTo: canvasView.safeAreaLayoutGuide.bottomAnchor),
-            mainImageView.leadingAnchor.constraint(equalTo: canvasView.safeAreaLayoutGuide.leadingAnchor),
-            mainImageView.trailingAnchor.constraint(equalTo: canvasView.safeAreaLayoutGuide.trailingAnchor)
-        ])
+        shapeLabel.text = nil
+        probabilityLabel.text = nil
+        swiped = false
+        lastPoint = touch.location(in: canvasView)
     }
     
+    func drawLine(from fromPoint: CGPoint, to toPoint: CGPoint) {
+      UIGraphicsBeginImageContext(canvasView.frame.size)
+      guard let context = UIGraphicsGetCurrentContext() else {
+        return
+      }
+        
+      tempImageView.image?.draw(in: canvasView.bounds)
+      
+      context.move(to: fromPoint)
+      context.addLine(to: toPoint)
+      
+      context.setLineCap(.round)
+      context.setBlendMode(.normal)
+      context.setLineWidth(brushWidth)
+      context.setStrokeColor(color.cgColor)
+      
+      context.strokePath()
+      
+      tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+      tempImageView.alpha = opacity
+      UIGraphicsEndImageContext()
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+      guard let touch = touches.first else {
+        return
+      }
+        swiped = true
+        let currentPoint = touch.location(in: canvasView)
+        drawLine(from: lastPoint, to: currentPoint)
+        
+        lastPoint = currentPoint
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+      if !swiped {
+        drawLine(from: lastPoint, to: lastPoint)
+      }
+      
+      UIGraphicsBeginImageContext(tempImageView.frame.size)
+      tempImageView.image?.draw(in: canvasView.bounds, blendMode: .normal, alpha:opacity)
+      tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+      UIGraphicsEndImageContext()
+    }
+    
+    @objc func resultPressed() {
+        shapeLabel.text = "어떤 모양일까요?"
+        probabilityLabel.text = "0 %"
+    }
+    
+    @objc func resetPressed() {
+        tempImageView.image = nil
+        shapeLabel.text = nil
+        probabilityLabel.text = nil
+    }
+    
+    /// UI Layout Configure Methods
     func configureTempImageView() {
         canvasView.addSubview(tempImageView)
         tempImageView.backgroundColor = UIColor.white
@@ -64,12 +122,14 @@ class MainViewController: UIViewController {
         buttonStackView.addArrangedSubview(estimateButton)
         estimateButton.setTitle("결과보기", for: .normal)
         estimateButton.setTitleColor(UIColor.systemOrange, for: .normal)
+        estimateButton.addTarget(self, action: #selector(resultPressed), for: .touchUpInside)
     }
     
     func configureResetButton() {
         buttonStackView.addArrangedSubview(resetButton)
         resetButton.setTitle("지우기", for: .normal)
         resetButton.setTitleColor(UIColor.white, for: .normal)
+        resetButton.addTarget(self, action: #selector(resetPressed), for: .touchUpInside)
     }
     
     func configureCanvasView() {
@@ -86,7 +146,6 @@ class MainViewController: UIViewController {
     
     func configureResultLabel() {
         mainStackView.addArrangedSubview(shapeLabel)
-        shapeLabel.text = "모양입니다"
         
         NSLayoutConstraint.activate([
             shapeLabel.heightAnchor.constraint(equalToConstant: view.frame.height / 20)
@@ -95,7 +154,6 @@ class MainViewController: UIViewController {
     
     func configureProbabilityLabel() {
         mainStackView.addArrangedSubview(probabilityLabel)
-        probabilityLabel.text = "100 %"
         
         NSLayoutConstraint.activate([
             probabilityLabel.heightAnchor.constraint(equalToConstant: view.frame.height / 20)
