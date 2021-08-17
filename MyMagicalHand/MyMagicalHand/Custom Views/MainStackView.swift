@@ -1,5 +1,5 @@
 //
-//  ButtonStackView.swift
+//  MainStackView.swift
 //  MyMagicalHand
 //
 //  Created by 김민성 on 2021/08/16.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ButtonStackView: UIStackView {
+class MainStackView: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,10 +19,11 @@ class ButtonStackView: UIStackView {
     }
     
     func configure() {
-        axis = .horizontal
+        axis = .vertical
         alignment = .fill
-        distribution = .fillEqually
+        distribution = .fill
         spacing = 10
         translatesAutoresizingMaskIntoConstraints = false
+        isLayoutMarginsRelativeArrangement = true
     }
 }
